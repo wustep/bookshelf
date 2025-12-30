@@ -31,6 +31,7 @@ export function BookCard({ book, index, onClick, isLifted }) {
 		<article
 			ref={cardRef}
 			className={`book-card ${isLifted ? "book-card--lifted" : ""}`}
+			data-book-id={book.id}
 			style={{
 				"--book-color": book.color,
 				"--animation-delay": `${index * 0.05}s`,

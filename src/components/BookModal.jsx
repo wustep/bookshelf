@@ -14,6 +14,7 @@ export function BookModal({
 	const [imageError, setImageError] = useState(false)
 	const [isTransitioning, setIsTransitioning] = useState(false)
 	const [displayedBook, setDisplayedBook] = useState(book)
+	const [foundFallbackOrigin, setFoundFallbackOrigin] = useState(false)
 	const modalRef = useRef(null)
 	const isClosingRef = useRef(false)
 	const timersRef = useRef({
@@ -59,13 +60,51 @@ export function BookModal({
 			animationPhase === "lifting" || animationPhase === "opening"
 		const closeTime = isInterrupting ? 350 : 750
 
+		// If no origin (after navigation), find the current book's position
+		if (!originPosition && book?.id && modalRef.current) {
+			const bookCard = document.querySelector(`[data-book-id="${book.id}"]`)
+			if (bookCard) {
+				const rect = bookCard.getBoundingClientRect()
+				const isInView = rect.top >= 0 && rect.bottom <= window.innerHeight
+
+				// Scroll into view if needed
+				if (!isInView) {
+					bookCard.scrollIntoView({ behavior: "instant", block: "center" })
+				}
+
+				// Get updated position after potential scroll
+				const updatedRect = bookCard.getBoundingClientRect()
+				const cardCenterX = updatedRect.left + updatedRect.width / 2
+				const cardCenterY = updatedRect.top + updatedRect.height / 2
+				const centerX = window.innerWidth / 2
+				const centerY = window.innerHeight / 2
+
+				// Calculate new origin offset
+				const modalWidth = Math.min(700, window.innerWidth - 64)
+				const modalHeight = Math.min(600, window.innerHeight * 0.8)
+				const newScale = Math.min(updatedRect.width / (modalWidth * 0.5), 0.85)
+				const coverCenterOffset = modalWidth * 0.25 * newScale
+				const modalCoverHeightAtScale = modalHeight * newScale
+				const heightDiff = modalCoverHeightAtScale - updatedRect.height
+
+				const newOffsetX = cardCenterX - centerX + coverCenterOffset
+				const newOffsetY = cardCenterY - centerY + heightDiff / 2
+
+				// Update CSS variables for close animation
+				modalRef.current.style.setProperty("--origin-x", `${newOffsetX}px`)
+				modalRef.current.style.setProperty("--origin-y", `${newOffsetY}px`)
+				modalRef.current.style.setProperty("--origin-scale", newScale)
+				setFoundFallbackOrigin(true)
+			}
+		}
+
 		setAnimationPhase(isInterrupting ? "closing-fast" : "closing")
 		timersRef.current.close = setTimeout(() => {
 			setAnimationPhase("idle")
 			isClosingRef.current = false
 			onClose()
 		}, closeTime)
-	}, [onClose, animationPhase])
+	}, [onClose, animationPhase, originPosition, book?.id])
 
 	// Handle opening the modal
 	useEffect(() => {
@@ -189,12 +228,14 @@ export function BookModal({
 	const currentBook = displayedBook || book
 	const hasCover = currentBook?.cover && !imageError
 
+	const hasOrigin = !!originPosition || foundFallbackOrigin
+
 	return (
 		<div
 			ref={modalRef}
 			className={`book-modal book-modal--${animationPhase}${
 				isTransitioning ? " book-modal--transitioning" : ""
-			}`}
+			}${!hasOrigin ? " book-modal--no-origin" : ""}`}
 			onClick={handleBackdropClick}
 			role="dialog"
 			aria-modal="true"
