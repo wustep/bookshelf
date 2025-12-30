@@ -4,7 +4,7 @@
 			"id": "1",
 			"title": "The Mythical Man-Month",
 			"author": "Frederick P. Brooks Jr.",
-			"date": "2024-12-15",
+			"date": "1995-08-02",
 			"category": "Engineering",
 			"color": "#1ABC9C",
 			"cover": "/data/covers/mythical-man-month.jpg",
@@ -21,13 +21,13 @@
 			"id": "2",
 			"title": "The Design of Everyday Things",
 			"author": "Don Norman",
-			"date": "2024-11-20",
+			"date": "2013-11-05",
 			"category": "Design",
 			"color": "#6C5CE7",
 			"cover": "/data/covers/design-of-everyday-things.jpg",
 			"notes": "A foundational text on human-centered design. This is the product design bible for a reason.",
 			"quotes": [
-				"People try to find causes for events. They tend to assign a causal relation whenever two things occur in succession. If some unexpected event happens in my home just after I have taken some action, I am apt to conclude that it was caused by that action, even if there really was no relationship between the two. Similarly, if I do something expecting a result and nothing happens, I am apt to interpret this lack of informative feedback as an indication that I didn’t do the action correctly: the most likely thing to do, therefore, is to repeat the action, only with more force.",
+				"People try to find causes for events. They tend to assign a causal relation whenever two things occur in succession. If some unexpected event happens in my home just after I have taken some action, I am apt to conclude that it was caused by that action, even if there really was no relationship between the two. Similarly, if I do something expecting a result and nothing happens, I am apt to interpret this lack of informative feedback as an indication that I didn't do the action correctly: the most likely thing to do, therefore, is to repeat the action, only with more force.",
 				"Designers should strive to minimize the chance of inappropriate actions in the first place by using affordances, signifiers, good mapping, and constraints to guide the actions. If a person performs an inappropriate action, the design should maximize the chance that this can be discovered and then rectified. This requires good, intelligible feedback coupled with a simple, clear conceptual model. When people understand what has happened, what state the system is in, and what the most appropriate set of actions is, they can perform their activities more effectively.",
 				"Although it is best when people have considerable knowledge and experience using a particular product—knowledge in the head— the designer can put sufficient cues into the design—knowledge in the world—that good performance results even in the absence of previous knowledge. Combine the two, knowledge in the head and in the world, and performance is even better. How can the designer put knowledge into the device itself?"
 			],
@@ -38,13 +38,13 @@
 			"id": "3",
 			"title": "Thinking in Systems",
 			"author": "Donella H. Meadows",
-			"date": "2024-10-05",
+			"date": "2008-12-05",
 			"category": "Thinking",
 			"color": "#27AE60",
 			"cover": "/data/covers/thinking-in-systems.jpg",
 			"notes": "A primer on systems thinking. Helps you see the interconnections and feedback loops everywhere you go.",
 			"quotes": [
-				"Once we see the relationship between structure and behavior, we can begin to understand how systems work, what makes them produce poor results, and how to shift them into better behavior patterns. As our world continues to change rapidly and become more complex, systems thinking will help us manage, adapt, and see the wide range of choices we have before us. It is a way of thinking that gives us the freedom to identify root causes of problems and see new opportunities. So, what is a system? A system is a set of things—people, cells, molecules, or whatever—interconnected in such a way that they produce their own pattern of behavior over time. The system may be buffeted, constricted, triggered, or driven by outside forces. But the system’s response to these forces is characteristic of itself, and that response is seldom simple in the real world."
+				"Once we see the relationship between structure and behavior, we can begin to understand how systems work, what makes them produce poor results, and how to shift them into better behavior patterns. As our world continues to change rapidly and become more complex, systems thinking will help us manage, adapt, and see the wide range of choices we have before us. It is a way of thinking that gives us the freedom to identify root causes of problems and see new opportunities. So, what is a system? A system is a set of things—people, cells, molecules, or whatever—interconnected in such a way that they produce their own pattern of behavior over time. The system may be buffeted, constricted, triggered, or driven by outside forces. But the system's response to these forces is characteristic of itself, and that response is seldom simple in the real world."
 			],
 			"goodreadsLink": "https://www.goodreads.com/book/show/3828902-thinking-in-systems",
 			"amazonLink": "https://www.amazon.com/Thinking-Systems-Donella-H-Meadows/dp/1603580557?tag=wustep09-20"
@@ -53,15 +53,15 @@
 			"id": "4",
 			"title": "An Elegant Puzzle",
 			"author": "Will Larson",
-			"date": "2024-08-12",
+			"date": "2019-05-20",
 			"category": "Engineering",
 			"color": "#3498DB",
 			"cover": "/data/covers/elegant-puzzle.jpg",
 			"notes": "Systems of engineering management. Practical frameworks for growing teams and understanding engineering orgs.",
 			"quotes": [
-				"I’m increasingly hearing folks reference the idea of organizational debt. This is the organizational sibling of technical debt, and it represents things like biased interview processes and inequitable compensation mechanisms. These are systemic problems that are preventing your organization from reaching its potential. Like technical debt, these risks linger because they are never the most pressing problem. Until that one fateful moment when they are. Within organizational debt, there is a volatile subset most likely to come abruptly due, and I call that subset organizational risk. Some good examples might be a toxic team culture, a toilsome fire drill, or a struggling leader. These problems bubble up from your peers, skip-level one-on-ones,16 and organizational health surveys. If you care and are listening, these are hard to miss. But they are slow to fix. And, oh, do they accumulate! The larger and older your organization is, the more you’ll find perched on your capable shoulders. How you respond to this is, in my opinion, the core challenge of leading a large organization.",
+				"I'm increasingly hearing folks reference the idea of organizational debt. This is the organizational sibling of technical debt, and it represents things like biased interview processes and inequitable compensation mechanisms. These are systemic problems that are preventing your organization from reaching its potential. Like technical debt, these risks linger because they are never the most pressing problem. Until that one fateful moment when they are. Within organizational debt, there is a volatile subset most likely to come abruptly due, and I call that subset organizational risk. Some good examples might be a toxic team culture, a toilsome fire drill, or a struggling leader. These problems bubble up from your peers, skip-level one-on-ones,16 and organizational health surveys. If you care and are listening, these are hard to miss. But they are slow to fix. And, oh, do they accumulate! The larger and older your organization is, the more you'll find perched on your capable shoulders. How you respond to this is, in my opinion, the core challenge of leading a large organization.",
 				"I believe that almost every internal problem can be traced back to a missing or poor relationship, and that with great relationships it is possible to come together and solve almost anything.",
-				"One of the observations from systems thinking is that, though humans are prone to interpreting events as causal, often problems are better described in terms of a series of stockpiles that grow and shrink based on incoming and outgoing flows. The Dust Bowl wasn’t caused by one farmer or one year of overfarming, but by years of systemic abuse. Stocks and flows are especially valuable in understanding the failure of projects and teams. Projects fall behind one sprint at a time. Technical debt strangles projects over months. Projects fail slowly—and fixing them takes time, too."
+				"One of the observations from systems thinking is that, though humans are prone to interpreting events as causal, often problems are better described in terms of a series of stockpiles that grow and shrink based on incoming and outgoing flows. The Dust Bowl wasn't caused by one farmer or one year of overfarming, but by years of systemic abuse. Stocks and flows are especially valuable in understanding the failure of projects and teams. Projects fall behind one sprint at a time. Technical debt strangles projects over months. Projects fail slowly—and fixing them takes time, too."
 			],
 			"goodreadsLink": "https://www.goodreads.com/book/show/45303387-an-elegant-puzzle",
 			"amazonLink": "https://www.amazon.com/Elegant-Puzzle-Systems-Engineering-Management/dp/1732265186?tag=wustep09-20"
@@ -70,7 +70,7 @@
 			"id": "5",
 			"title": "The Pragmatic Programmer",
 			"author": "David Thomas & Andrew Hunt",
-			"date": "2024-06-28",
+			"date": "2019-09-13",
 			"category": "Engineering",
 			"color": "#4A90A4",
 			"cover": "/data/covers/pragmatic-programmer.jpg",
@@ -86,7 +86,7 @@
 			"id": "6",
 			"title": "The Courage to Be Disliked",
 			"author": "Ichiro Kishimi & Fumitake Koga",
-			"date": "2023-11-15",
+			"date": "2018-05-08",
 			"category": "Thinking",
 			"color": "#E74C3C",
 			"cover": "/data/covers/courage-to-be-disliked.jpg",
@@ -94,7 +94,7 @@
 			"quotes": [
 				"No experience is in itself a cause of our success or failure. We do not suffer from the shock of our experiences—the so-called trauma—but instead we make out of them whatever suits our purposes. We are not determined by our experiences, but the meaning we give them is self-determining.",
 				"We determine our own lives according to the meaning we give to those past experiences. Your life is not something that someone gives you, but something you choose yourself, and you are the one who decides how you live.",
-				"At some stage in your life, you chose “being unhappy.” It is not because you were born into unhappy circumstances or ended up in an unhappy situation. It’s that you judged “being unhappy” to be good for you."
+				"At some stage in your life, you chose \"being unhappy.\" It is not because you were born into unhappy circumstances or ended up in an unhappy situation. It's that you judged \"being unhappy\" to be good for you."
 			],
 			"goodreadsLink": "https://www.goodreads.com/book/show/43306206-the-courage-to-be-disliked",
 			"amazonLink": "https://www.amazon.com/Courage-Be-Disliked-Phenomenon-Happiness/dp/1501197274?tag=wustep09-20"
@@ -103,15 +103,15 @@
 			"id": "7",
 			"title": "How Emotions Are Made",
 			"author": "Lisa Feldman Barrett",
-			"date": "2023-09-22",
+			"date": "2018-03-13",
 			"category": "Thinking",
 			"color": "#9B59B6",
 			"cover": "/data/covers/how-emotions-are-made.jpg",
 			"notes": "The secret life of the brain. Emotions aren't hardwired; they're constructed by culture and habits.",
 			"quotes": [
 				"When scientists set aside the classical view and just look at the data, a radically different explanation for emotion comes to light. In short, we find that your emotions are not built-in but made from more basic parts. They are not universal but vary from culture to culture. They are not triggered; you create them. They emerge as a combination of the physical properties of your body, a flexible brain that wires itself to whatever environment it develops in, and your culture and upbringing, which provide that environment. Emotions are real, but not in the objective sense that molecules or neurons are real. They are real in the same sense that money is real—that is, hardly an illusion, but a product of human agreement.",
-				"Simulations are your brain’s guesses of what’s happening in the world. In every waking moment, you’re faced with ambiguous, noisy information from your eyes, ears, nose, and other sensory organs. Your brain uses your past experiences to construct a hypothesis—the simulation—and compares it to the cacophony arriving from your senses. In this manner, simulation lets your brain impose meaning on the noise, selecting what’s relevant and ignoring the rest.",
-				"Likewise, we do not “recognize” or “detect” emotions in others. These terms imply that an emotion category has a fingerprint that exists in nature, independent of any perceiver, waiting to be found. Any scientific question about “detecting” emotion automatically presumes a certain kind of answer. In the construction mindset, I speak of perceiving an instance of emotion. Perception is a complex mental process that does not imply a neural fingerprint behind the emotion, merely that an instance of emotion occurred somehow. I also avoid verbs like “triggering” emotion, and phrases like “emotional reaction” and emotions “happening to you.” Such wording implies that emotions are objective entities. Even when you feel no sense of agency when experiencing emotion, which is most of the time, you are an active participant in that experience."
+				"Simulations are your brain's guesses of what's happening in the world. In every waking moment, you're faced with ambiguous, noisy information from your eyes, ears, nose, and other sensory organs. Your brain uses your past experiences to construct a hypothesis—the simulation—and compares it to the cacophony arriving from your senses. In this manner, simulation lets your brain impose meaning on the noise, selecting what's relevant and ignoring the rest.",
+				"Likewise, we do not \"recognize\" or \"detect\" emotions in others. These terms imply that an emotion category has a fingerprint that exists in nature, independent of any perceiver, waiting to be found. Any scientific question about \"detecting\" emotion automatically presumes a certain kind of answer. In the construction mindset, I speak of perceiving an instance of emotion. Perception is a complex mental process that does not imply a neural fingerprint behind the emotion, merely that an instance of emotion occurred somehow. I also avoid verbs like \"triggering\" emotion, and phrases like \"emotional reaction\" and emotions \"happening to you.\" Such wording implies that emotions are objective entities. Even when you feel no sense of agency when experiencing emotion, which is most of the time, you are an active participant in that experience."
 			],
 			"goodreadsLink": "https://www.goodreads.com/book/show/23719305-how-emotions-are-made",
 			"amazonLink": "https://www.amazon.com/How-Emotions-Are-Made-Secret/dp/1328915433?tag=wustep09-20"
@@ -120,13 +120,13 @@
 			"id": "8",
 			"title": "The Anthropocene Reviewed",
 			"author": "John Green",
-			"date": "2023-07-10",
+			"date": "2021-05-18",
 			"category": "Culture",
 			"color": "#2ECC71",
 			"cover": "/data/covers/anthropocene-reviewed.jpg",
 			"notes": "Essays reviewing facets of the human-centered planet on a five-star scale. A nice reminder of the everyday wonders of the world.",
 			"quotes": [
-				"To fall in love with the world isn’t to ignore or overlook suffering, both human or otherwise. For me anyway, to fall in love with the world is to look up at the night sky and feel your mind swim before the beauty and the distance of the stars. It is to hold your children while they cry and watch the sycamore trees leaf out in June. When my breastbone starts to hurt, and my throat tightens and tears well in my eyes, I want to look away from feeling. I want to deflect with irony or anything else that will keep me from feeling directly. We all know how loving ends. But I want to fall in love with the world anyway, to let it crack me open. I want to feel what there is to feel while I am here."
+				"To fall in love with the world isn't to ignore or overlook suffering, both human or otherwise. For me anyway, to fall in love with the world is to look up at the night sky and feel your mind swim before the beauty and the distance of the stars. It is to hold your children while they cry and watch the sycamore trees leaf out in June. When my breastbone starts to hurt, and my throat tightens and tears well in my eyes, I want to look away from feeling. I want to deflect with irony or anything else that will keep me from feeling directly. We all know how loving ends. But I want to fall in love with the world anyway, to let it crack me open. I want to feel what there is to feel while I am here."
 			],
 			"goodreadsLink": "https://www.goodreads.com/book/show/55145261-the-anthropocene-reviewed",
 			"amazonLink": "https://www.amazon.com/Anthropocene-Reviewed-Signed-John-Green/dp/0525555218?tag=wustep09-20"
@@ -135,7 +135,7 @@
 			"id": "9",
 			"title": "Make Something Wonderful",
 			"author": "Steve Jobs",
-			"date": "2023-05-01",
+			"date": "2023-04-11",
 			"category": "Design",
 			"color": "#2C3E50",
 			"cover": "/data/covers/make-something-wonderful.jpg",
@@ -152,13 +152,13 @@
 			"id": "10",
 			"title": "Bird by Bird",
 			"author": "Anne Lamott",
-			"date": "2022-12-18",
+			"date": "1995-09-01",
 			"category": "Thinking",
 			"color": "#16A085",
 			"cover": "/data/covers/bird-by-bird.jpg",
 			"notes": "Instructions on writing and life. Honest, funny, and human.",
 			"quotes": [
-				"Writing has so much to give, so much to teach, so many surprises. That thing you had to force yourself to do—the actual act of writing—turns out to be the best part. It’s like discovering that while you thought you needed the tea ceremony for the caffeine, what you really needed was the tea ceremony. The act of writing turns out to be its own reward.",
+				"Writing has so much to give, so much to teach, so many surprises. That thing you had to force yourself to do—the actual act of writing—turns out to be the best part. It's like discovering that while you thought you needed the tea ceremony for the caffeine, what you really needed was the tea ceremony. The act of writing turns out to be its own reward.",
 				"Perfectionism is the voice of the oppressor, the enemy of the people. It will keep you cramped and insane your whole life, and it is the main obstacle between you and a shitty first draft. I think perfectionism is based on the obsessive belief that if you run carefully enough, hitting each stepping-stone just right, you won't have to die. The truth is that you will die anyway and that a lot of people who aren't even looking at their feet are going to do a whole lot better than you, and have a lot more fun while they're doing it."
 			],
 			"goodreadsLink": "https://www.goodreads.com/book/show/12543.Bird_by_Bird",
@@ -168,7 +168,7 @@
 			"id": "11",
 			"title": "Man's Search for Meaning",
 			"author": "Viktor E. Frankl",
-			"date": "2022-10-05",
+			"date": "2006-06-01",
 			"category": "Thinking",
 			"color": "#34495E",
 			"cover": "/data/covers/mans-search-for-meaning.jpg",
@@ -176,7 +176,7 @@
 			"quotes": [
 				"Suffering in and of itself is meaningless; we give our suffering meaning by the way in which we respond to it.",
 				"Forces beyond your control can take away everything you possess except one thing, your freedom to choose how you will respond to the situation. You cannot control what happens to you in life, but you can always control what you will feel and do about what happens to you.",
-				"Don’t aim at success—the more you aim at it and make it a target, the more you are going to miss it. For success, like happiness, cannot be pursued; it must ensue, and it only does so as the unintended side-effect of one’s dedication to a cause greater than oneself or as the by-product of one’s surrender to a person other than oneself. Happiness must happen, and the same holds for success: you have to let it happen by not caring about it."
+				"Don't aim at success—the more you aim at it and make it a target, the more you are going to miss it. For success, like happiness, cannot be pursued; it must ensue, and it only does so as the unintended side-effect of one's dedication to a cause greater than oneself or as the by-product of one's surrender to a person other than oneself. Happiness must happen, and the same holds for success: you have to let it happen by not caring about it."
 			],
 			"goodreadsLink": "https://www.goodreads.com/book/show/4069.Man_s_Search_for_Meaning",
 			"amazonLink": "https://www.amazon.com/Mans-Search-Meaning-Viktor-Frankl/dp/0807014273?tag=wustep09-20"
@@ -185,15 +185,15 @@
 			"id": "12",
 			"title": "The Molecule of More",
 			"author": "Daniel Z. Lieberman & Michael E. Long",
-			"date": "2022-08-14",
+			"date": "2018-08-14",
 			"category": "Thinking",
 			"color": "#E67E22",
 			"cover": "/data/covers/molecule-of-more.jpg",
 			"notes": "How dopamine shapes love, ambition, and addiction. Fascinating neuroscience.",
 			"quotes": [
-				"Dopaminergic excitement (that is, the thrill of anticipation) doesn’t last forever, because eventually the future becomes the present. The thrilling mystery of the unknown becomes the boring familiarity of the everyday, at which point dopamine’s job is done, and the letdown sets in. The coffee and croissants were so good, you made that bakery your regular breakfast stop. But after a few weeks, “the best coffee and croissant in the city” became the same old breakfast.",
-				"If you live under a bridge, dopamine makes you want a tent. If you live in a tent, dopamine makes you want a house. If you live in the most expensive mansion in the world, dopamine makes you want a castle on the moon. Dopamine has no standard for good, and seeks no finish line. The dopamine circuits in the brain can be stimulated only by the possibility of whatever is shiny and new, never mind how perfect things are at the moment. The dopamine motto is “More.”",
-				"Our dopamine circuits are what make us human. They are what give our species its special power. We think. We plan. We imagine. We elevate our thoughts to ponder abstract concepts such as truth, justice, and beauty. Within those circuits we transcend all barriers of space and time. We thrive in the most hostile environments—even in outer space—thanks to our ability to dominate the world around us. But these same circuits can also lead us down a darker path, a path of addiction, betrayal, and misery. If we aim to be great, we will probably have to accept the fact that misery will be a part of it. It’s the goad of dissatisfaction that keeps us at our work while others are enjoying the company of family and friends. But those of us who prefer a life of happy fulfillment have a different task to accomplish: the task of finding harmony. We have to overcome the seduction of endless dopaminergic stimulation and turn our backs on our never-ending hunger for more. If we are able to intermingle dopamine with H&N, we can achieve that harmony. All dopamine all the time is not the path to the best possible future."
+				"Dopaminergic excitement (that is, the thrill of anticipation) doesn't last forever, because eventually the future becomes the present. The thrilling mystery of the unknown becomes the boring familiarity of the everyday, at which point dopamine's job is done, and the letdown sets in. The coffee and croissants were so good, you made that bakery your regular breakfast stop. But after a few weeks, \"the best coffee and croissant in the city\" became the same old breakfast.",
+				"If you live under a bridge, dopamine makes you want a tent. If you live in a tent, dopamine makes you want a house. If you live in the most expensive mansion in the world, dopamine makes you want a castle on the moon. Dopamine has no standard for good, and seeks no finish line. The dopamine circuits in the brain can be stimulated only by the possibility of whatever is shiny and new, never mind how perfect things are at the moment. The dopamine motto is \"More.\"",
+				"Our dopamine circuits are what make us human. They are what give our species its special power. We think. We plan. We imagine. We elevate our thoughts to ponder abstract concepts such as truth, justice, and beauty. Within those circuits we transcend all barriers of space and time. We thrive in the most hostile environments—even in outer space—thanks to our ability to dominate the world around us. But these same circuits can also lead us down a darker path, a path of addiction, betrayal, and misery. If we aim to be great, we will probably have to accept the fact that misery will be a part of it. It's the goad of dissatisfaction that keeps us at our work while others are enjoying the company of family and friends. But those of us who prefer a life of happy fulfillment have a different task to accomplish: the task of finding harmony. We have to overcome the seduction of endless dopaminergic stimulation and turn our backs on our never-ending hunger for more. If we are able to intermingle dopamine with H&N, we can achieve that harmony. All dopamine all the time is not the path to the best possible future."
 			],
 			"goodreadsLink": "https://www.goodreads.com/book/show/39088013-the-molecule-of-more",
 			"amazonLink": "https://www.amazon.com/Molecule-More-Dopamine-Drives-Love/dp/1946885118?tag=wustep09-20"
@@ -202,7 +202,7 @@
 			"id": "13",
 			"title": "Steve Jobs",
 			"author": "Walter Isaacson",
-			"date": "2021-11-30",
+			"date": "2011-10-24",
 			"category": "Culture",
 			"color": "#7F8C8D",
 			"cover": "/data/covers/steve-jobs.jpg",
@@ -214,15 +214,15 @@
 			"id": "14",
 			"title": "The Creative Act",
 			"author": "Rick Rubin",
-			"date": "2021-09-15",
+			"date": "2023-01-17",
 			"category": "Design",
 			"color": "#BDC3C7",
 			"cover": "/data/covers/creative-act.jpg",
 			"notes": "Meditations on creativity from the legendary producer. Useful for creatives to think in different ways.",
 			"quotes": [
-				"Formulating an opinion is not listening. Neither is preparing a response, or defending our position or attacking another’s. To listen impatiently is to hear nothing at all. Listening is suspending disbelief. We are openly receiving. Paying attention with no preconceived ideas. The only goal is to fully and clearly understand what is being transmitted, remaining totally present with what’s being expressed—and allowing it to be what it is.",
+				"Formulating an opinion is not listening. Neither is preparing a response, or defending our position or attacking another's. To listen impatiently is to hear nothing at all. Listening is suspending disbelief. We are openly receiving. Paying attention with no preconceived ideas. The only goal is to fully and clearly understand what is being transmitted, remaining totally present with what's being expressed—and allowing it to be what it is.",
 				"Consider how different your experience of the world might be if you engaged in every activity with the attention you might give to landing a plane. There are those who approach the opportunities of each day like crossing items off a to-do list instead of truly engaging and participating with all of themselves.",
-				"To see what no human has seen before, to know what no human has known before, to create as no human has created before, it may be necessary to see as if through eyes that have never seen, know through a mind that has never thought, create with hands that have never been trained. This is beginner’s mind—one of the most difficult states of being to dwell in for an artist, precisely because it involves letting go of what our experiences have taught us."
+				"To see what no human has seen before, to know what no human has known before, to create as no human has created before, it may be necessary to see as if through eyes that have never seen, know through a mind that has never thought, create with hands that have never been trained. This is beginner's mind—one of the most difficult states of being to dwell in for an artist, precisely because it involves letting go of what our experiences have taught us."
 			],
 			"goodreadsLink": "https://www.goodreads.com/book/show/60965426-the-creative-act",
 			"amazonLink": "https://www.amazon.com/Creative-Act-Way-Being/dp/0593652886?tag=wustep09-20"
@@ -231,7 +231,7 @@
 			"id": "15",
 			"title": "How to Know a Person",
 			"author": "David Brooks",
-			"date": "2021-06-22",
+			"date": "2023-10-24",
 			"category": "Thinking",
 			"color": "#1E8449",
 			"cover": "/data/covers/how-to-know-a-person.jpg",
@@ -243,14 +243,14 @@
 			"id": "16",
 			"title": "The Great Mental Models",
 			"author": "Shane Parrish",
-			"date": "2020-12-01",
+			"date": "2018-12-01",
 			"category": "Thinking",
 			"color": "#D35400",
 			"cover": "/data/covers/great-mental-models.jpg",
 			"notes": "General thinking concepts. Frameworks for better decision making.",
 			"quotes": [
-				"We also tend to undervalue the elementary ideas and overvalue the complicated ones. Most of us get jobs based on some form of specialized knowledge, so this makes sense. We don’t think we have much value if we know the things everyone else does, so we focus our effort on developing unique expertise to set ourselves apart. The problem is then that we reject the simple to make sure what we offer can’t be contributed by someone else. But simple ideas are of great value because they can help us prevent complex problems.",
-				"The truth is, the only way we can navigate the complexity of reality is through some sort of abstraction. When we read the news, we’re consuming abstractions created by other people. The authors consumed vast amounts of information, reflected upon it, and drew some abstractions and conclusions that they share with us. But something is lost in the process. We can lose the specific and relevant details that were distilled into an abstraction. And, because we often consume these abstractions as gospel, without having done the hard mental work ourselves, it’s tricky to see when the map no longer agrees with the territory. We inadvertently forget that the map is not reality."
+				"We also tend to undervalue the elementary ideas and overvalue the complicated ones. Most of us get jobs based on some form of specialized knowledge, so this makes sense. We don't think we have much value if we know the things everyone else does, so we focus our effort on developing unique expertise to set ourselves apart. The problem is then that we reject the simple to make sure what we offer can't be contributed by someone else. But simple ideas are of great value because they can help us prevent complex problems.",
+				"The truth is, the only way we can navigate the complexity of reality is through some sort of abstraction. When we read the news, we're consuming abstractions created by other people. The authors consumed vast amounts of information, reflected upon it, and drew some abstractions and conclusions that they share with us. But something is lost in the process. We can lose the specific and relevant details that were distilled into an abstraction. And, because we often consume these abstractions as gospel, without having done the hard mental work ourselves, it's tricky to see when the map no longer agrees with the territory. We inadvertently forget that the map is not reality."
 			],
 			"goodreadsLink": "https://www.goodreads.com/book/show/44245196-the-great-mental-models",
 			"amazonLink": "https://www.amazon.com/Great-Mental-Models-Thinking-Concepts/dp/1999449002?tag=wustep09-20"
@@ -259,7 +259,7 @@
 			"id": "17",
 			"title": "A Life in Parts",
 			"author": "Bryan Cranston",
-			"date": "2020-08-20",
+			"date": "2017-08-08",
 			"category": "Culture",
 			"color": "#8E44AD",
 			"cover": "/data/covers/life-in-parts.jpg",
@@ -271,7 +271,7 @@
 			"id": "18",
 			"title": "Tomorrow, and Tomorrow, and Tomorrow",
 			"author": "Gabrielle Zevin",
-			"date": "2022-09-05",
+			"date": "2022-07-05",
 			"category": "Culture",
 			"color": "#5DADE2",
 			"cover": "/data/covers/tomorrow-x3.jpg",
