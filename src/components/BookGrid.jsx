@@ -58,17 +58,17 @@ export function BookGrid({ books, onBookClick, liftedBookId, compactView }) {
 										mass: 1,
 									},
 									opacity: {
-										duration: 0.38,
-										delay: !hasAnimatedIn ? index * 0.035 : 0,
+										duration: 0.5,
+										delay: !hasAnimatedIn ? index * 0.05 : 0,
 										ease: [0.16, 1, 0.3, 1],
 									},
 									y: {
 										type: "spring",
-										stiffness: 420,
-										damping: 34,
+										stiffness: 300,
+										damping: 30,
 										mass: 1,
 										bounce: 0,
-										delay: !hasAnimatedIn ? index * 0.035 : 0,
+										delay: !hasAnimatedIn ? index * 0.05 : 0,
 									},
 									scale: {
 										duration: 0.3,

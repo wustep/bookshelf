@@ -1,19 +1,35 @@
-import { Dices, LayoutGrid, Library, ArrowDownAZ, CalendarDays } from "lucide-react"
+import { motion } from "framer-motion"
+import {
+	Dices,
+	LayoutGrid,
+	Library,
+	ArrowDownAZ,
+	CalendarDays,
+} from "lucide-react"
 import "./CategoryBadges.css"
 
-export function CategoryBadges({ 
-	categories, 
-	selectedCategory, 
-	onCategoryChange, 
-	bookCount, 
+export function CategoryBadges({
+	categories,
+	selectedCategory,
+	onCategoryChange,
+	bookCount,
 	onRandomBook,
 	compactView,
 	onToggleCompact,
 	sortBy,
-	onSortChange
+	onSortChange,
 }) {
 	return (
-		<div className="category-badges">
+		<motion.div
+			className="category-badges"
+			initial={{ opacity: 0, y: 15 }}
+			animate={{ opacity: 1, y: 0 }}
+			transition={{
+				duration: 0.5,
+				delay: 0.15,
+				ease: [0.16, 1, 0.3, 1],
+			}}
+		>
 			<div className="category-badges__list">
 				<button
 					className={`category-badge ${!selectedCategory ? "category-badge--active" : ""}`}
@@ -26,7 +42,9 @@ export function CategoryBadges({
 					<button
 						key={category}
 						className={`category-badge ${selectedCategory === category ? "category-badge--active" : ""}`}
-						onClick={() => onCategoryChange(selectedCategory === category ? "" : category)}
+						onClick={() =>
+							onCategoryChange(selectedCategory === category ? "" : category)
+						}
 					>
 						{category}
 					</button>
@@ -37,7 +55,9 @@ export function CategoryBadges({
 					<button
 						className="category-badges__sort"
 						onClick={onSortChange}
-						aria-label={sortBy === "date" ? "Sort alphabetically" : "Sort by date"}
+						aria-label={
+							sortBy === "date" ? "Sort alphabetically" : "Sort by date"
+						}
 						data-tooltip={sortBy === "date" ? "A-Z" : "Recent"}
 					>
 						{sortBy === "date" ? (
@@ -54,11 +74,7 @@ export function CategoryBadges({
 						aria-label={compactView ? "Show full cards" : "Show covers only"}
 						data-tooltip={compactView ? "Card view" : "Compact view"}
 					>
-						{compactView ? (
-							<LayoutGrid size={16} />
-						) : (
-							<Library size={16} />
-						)}
+						{compactView ? <LayoutGrid size={16} /> : <Library size={16} />}
 					</button>
 				)}
 				{onRandomBook && (
@@ -72,7 +88,7 @@ export function CategoryBadges({
 					</button>
 				)}
 			</div>
-		</div>
+		</motion.div>
 	)
 }
 
