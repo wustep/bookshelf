@@ -25,6 +25,7 @@ export function BookModal({ book, isOpen, onClose, originPosition }) {
 		timersRef.current.close = setTimeout(() => {
 			setAnimationPhase("idle")
 			isClosingRef.current = false
+			document.body.style.overflow = "" // Restore scrolling
 			onClose()
 		}, closeTime)
 	}, [onClose, animationPhase])
