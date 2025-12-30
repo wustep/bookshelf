@@ -1,4 +1,4 @@
-import { Dices, LayoutGrid, Library } from "lucide-react"
+import { Dices, LayoutGrid, Library, ArrowDownAZ, CalendarDays } from "lucide-react"
 import "./CategoryBadges.css"
 
 export function CategoryBadges({ 
@@ -8,7 +8,9 @@ export function CategoryBadges({
 	bookCount, 
 	onRandomBook,
 	compactView,
-	onToggleCompact 
+	onToggleCompact,
+	sortBy,
+	onSortChange
 }) {
 	return (
 		<div className="category-badges">
@@ -31,6 +33,20 @@ export function CategoryBadges({
 				))}
 			</div>
 			<div className="category-badges__actions">
+				{onSortChange && (
+					<button
+						className="category-badges__sort"
+						onClick={onSortChange}
+						aria-label={sortBy === "date" ? "Sort alphabetically" : "Sort by date"}
+						data-tooltip={sortBy === "date" ? "A-Z" : "Recent"}
+					>
+						{sortBy === "date" ? (
+							<ArrowDownAZ size={16} />
+						) : (
+							<CalendarDays size={16} />
+						)}
+					</button>
+				)}
 				{onToggleCompact && (
 					<button
 						className={`category-badges__toggle ${compactView ? "category-badges__toggle--active" : ""}`}

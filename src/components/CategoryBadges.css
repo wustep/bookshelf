@@ -81,7 +81,8 @@
 	flex-shrink: 0;
 }
 
-/* Toggle button */
+/* Action buttons (sort, toggle, random) */
+.category-badges__sort,
 .category-badges__toggle {
 	position: relative;
 	display: flex;
@@ -98,6 +99,7 @@
 	transition: all 0.2s ease;
 }
 
+.category-badges__sort:hover,
 .category-badges__toggle:hover {
 	border-color: var(--accent-color);
 	color: var(--accent-color);

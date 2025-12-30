@@ -1,6 +1,15 @@
 import { useEffect, useRef, useState, useCallback } from "react"
 import "./BookModal.css"
 
+function formatDate(dateStr) {
+	if (!dateStr) return ""
+	const date = new Date(dateStr)
+	return date.toLocaleDateString("en-US", {
+		month: "long",
+		year: "numeric",
+	})
+}
+
 export function BookModal({
 	book,
 	isOpen,
@@ -311,7 +320,11 @@ export function BookModal({
 								{currentBook.title}
 							</h2>
 							<p className="book-modal__author">by {currentBook.author}</p>
-							<span className="book-modal__year">{currentBook.year}</span>
+							<span className="book-modal__year">
+								{currentBook.date
+									? formatDate(currentBook.date)
+									: currentBook.year}
+							</span>
 						</header>
 
 						{currentBook.notes && (

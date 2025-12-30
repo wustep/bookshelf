@@ -15,6 +15,7 @@ function App() {
 	const [selectedBook, setSelectedBook] = useState(null)
 	const [originPosition, setOriginPosition] = useState(null)
 	const [compactView, setCompactView] = useState(false)
+	const [sortBy, setSortBy] = useState("date") // "date" or "alpha"
 	const recentRandomIds = useRef([])
 
 	const filteredBooks = useMemo(() => {
@@ -25,11 +26,20 @@ function App() {
 			result = result.filter((book) => book.category === selectedCategory)
 		}
 
-		// Sort by most recent
-		result.sort((a, b) => b.year - a.year)
+		// Sort based on sortBy
+		if (sortBy === "date") {
+			result.sort((a, b) => {
+				// Parse dates - support both "YYYY-MM-DD" and just year number
+				const dateA = a.date ? new Date(a.date) : new Date(a.year, 0, 1)
+				const dateB = b.date ? new Date(b.date) : new Date(b.year, 0, 1)
+				return dateB - dateA
+			})
+		} else {
+			result.sort((a, b) => a.title.localeCompare(b.title))
+		}
 
 		return result
-	}, [books, selectedCategory])
+	}, [books, selectedCategory, sortBy])
 
 	const currentBookIndex = useMemo(() => {
 		if (!selectedBook) return -1
@@ -137,6 +147,8 @@ function App() {
 							onRandomBook={handleRandomBook}
 							compactView={compactView}
 							onToggleCompact={() => setCompactView(!compactView)}
+							sortBy={sortBy}
+							onSortChange={() => setSortBy(sortBy === "date" ? "alpha" : "date")}
 						/>
 						<BookGrid
 							books={filteredBooks}

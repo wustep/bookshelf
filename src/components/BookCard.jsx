@@ -1,6 +1,11 @@
 import { useState, useRef } from "react"
 import "./BookCard.css"
 
+function getYear(dateStr) {
+	if (!dateStr) return ""
+	return new Date(dateStr).getFullYear()
+}
+
 export function BookCard({ book, index, onClick, isLifted, compact }) {
 	const [imageError, setImageError] = useState(false)
 	const cardRef = useRef(null)
@@ -68,7 +73,9 @@ export function BookCard({ book, index, onClick, isLifted, compact }) {
 						<p className="book-card__author">{book.author}</p>
 					</div>
 
-					<div className="book-card__year">{book.year}</div>
+					<div className="book-card__year">
+						{book.date ? getYear(book.date) : book.year}
+					</div>
 				</>
 			)}
 
