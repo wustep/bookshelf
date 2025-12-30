@@ -70,7 +70,7 @@
 
 .header__subtitle {
 	font-size: 1rem;
-	color: var(--text-secondary);
+	color: var(--text-primary);
 	margin: 0.5rem 0 0;
 	font-style: italic;
 }
