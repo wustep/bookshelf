@@ -90,8 +90,11 @@ export function BookModal({
 				const centerY = window.innerHeight / 2
 
 				// Calculate new origin offset
-				const modalWidth = Math.min(750, window.innerWidth - 64)
-				const modalHeight = Math.min(660, window.innerHeight * 0.82)
+				const modalWidth = Math.min(920, window.innerWidth - 64)
+				const modalHeight = Math.min(
+					modalWidth * 0.75,
+					window.innerHeight * 0.88
+				)
 				const newScale = Math.min(updatedRect.width / (modalWidth * 0.5), 0.85)
 				const coverCenterOffset = modalWidth * 0.25 * newScale
 				const modalCoverHeightAtScale = modalHeight * newScale
@@ -200,14 +203,14 @@ export function BookModal({
 	const centerX = typeof window !== "undefined" ? window.innerWidth / 2 : 0
 	const centerY = typeof window !== "undefined" ? window.innerHeight / 2 : 0
 
-	// Modal dimensions (82vh max 660px height)
+	// Modal dimensions (4:3 aspect ratio so cover at 50% width has 2:3 ratio)
 	const modalWidth = Math.min(
-		750,
-		typeof window !== "undefined" ? window.innerWidth - 64 : 750
+		920,
+		typeof window !== "undefined" ? window.innerWidth - 64 : 920
 	)
 	const modalHeight = Math.min(
-		660,
-		typeof window !== "undefined" ? window.innerHeight * 0.82 : 660
+		modalWidth * 0.75,
+		typeof window !== "undefined" ? window.innerHeight * 0.88 : 690
 	)
 	const coverWidthAtScale1 = modalWidth * 0.5 // Cover is 50% of modal
 
