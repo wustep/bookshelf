@@ -31,8 +31,7 @@
 }
 
 .book-card:focus-visible {
-  outline: 2px solid var(--book-color);
-  outline-offset: 4px;
+  outline: none;
 }
 
 .book-card__cover-wrapper {
