@@ -1,12 +1,28 @@
 import { useEffect, useRef, useState, useCallback } from "react"
 import "./BookModal.css"
 
-export function BookModal({ book, isOpen, onClose, originPosition }) {
+export function BookModal({ book, isOpen, onClose, originPosition, onNavigate, hasPrev, hasNext }) {
 	const [animationPhase, setAnimationPhase] = useState("idle") // idle, lifting, opening, open, closing
 	const [imageError, setImageError] = useState(false)
+	const [isTransitioning, setIsTransitioning] = useState(false)
 	const modalRef = useRef(null)
 	const isClosingRef = useRef(false)
 	const timersRef = useRef({ lift: null, open: null, close: null })
+	const prevBookIdRef = useRef(book?.id)
+
+	// Handle book change transition
+	useEffect(() => {
+		if (book?.id !== prevBookIdRef.current && animationPhase === "open") {
+			setIsTransitioning(true)
+			setImageError(false)
+			const timer = setTimeout(() => {
+				setIsTransitioning(false)
+			}, 250)
+			prevBookIdRef.current = book?.id
+			return () => clearTimeout(timer)
+		}
+		prevBookIdRef.current = book?.id
+	}, [book?.id, animationPhase])
 
 	const handleClose = useCallback(() => {
 		if (isClosingRef.current) return
@@ -59,14 +75,20 @@ export function BookModal({ book, isOpen, onClose, originPosition }) {
 	}, [isOpen])
 
 	useEffect(() => {
-		const handleEscape = (e) => {
-			if (e.key === "Escape" && isOpen && animationPhase !== "closing") {
+		const handleKeydown = (e) => {
+			if (!isOpen || animationPhase === "closing" || animationPhase === "closing-fast") return
+			
+			if (e.key === "Escape") {
 				handleClose()
+			} else if (e.key === "ArrowLeft" && hasPrev && animationPhase === "open") {
+				onNavigate(-1)
+			} else if (e.key === "ArrowRight" && hasNext && animationPhase === "open") {
+				onNavigate(1)
 			}
 		}
-		window.addEventListener("keydown", handleEscape)
-		return () => window.removeEventListener("keydown", handleEscape)
-	}, [isOpen, animationPhase, handleClose])
+		window.addEventListener("keydown", handleKeydown)
+		return () => window.removeEventListener("keydown", handleKeydown)
+	}, [isOpen, animationPhase, handleClose, hasPrev, hasNext, onNavigate])
 
 	const handleBackdropClick = (e) => {
 		if (e.target === modalRef.current && animationPhase === "open") {
@@ -118,7 +140,7 @@ export function BookModal({ book, isOpen, onClose, originPosition }) {
 	return (
 		<div
 			ref={modalRef}
-			className={`book-modal book-modal--${animationPhase}`}
+			className={`book-modal book-modal--${animationPhase}${isTransitioning ? " book-modal--transitioning" : ""}`}
 			onClick={handleBackdropClick}
 			role="dialog"
 			aria-modal="true"
@@ -151,13 +173,33 @@ export function BookModal({ book, isOpen, onClose, originPosition }) {
 
 				{/* Book pages / content */}
 				<div className="book-modal__pages">
-					<button
-						className="book-modal__close"
-						onClick={handleClose}
-						aria-label="Close"
-					>
-						×
-					</button>
+					<div className="book-modal__nav">
+						{hasPrev && (
+							<button
+								className="book-modal__nav-btn book-modal__nav-btn--prev"
+								onClick={() => onNavigate(-1)}
+								aria-label="Previous book"
+							>
+								←
+							</button>
+						)}
+						{hasNext && (
+							<button
+								className="book-modal__nav-btn book-modal__nav-btn--next"
+								onClick={() => onNavigate(1)}
+								aria-label="Next book"
+							>
+								→
+							</button>
+						)}
+						<button
+							className="book-modal__close"
+							onClick={handleClose}
+							aria-label="Close"
+						>
+							×
+						</button>
+					</div>
 
 					<div className="book-modal__content">
 						<header className="book-modal__header">

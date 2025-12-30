@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react"
+import { useState, useMemo, useCallback } from "react"
 import { useBooks, useCategories } from "./hooks/useBooks"
 import { Header } from "./components/Header"
 import { CategoryBadges } from "./components/CategoryBadges"
@@ -29,6 +29,11 @@ function App() {
 		return result
 	}, [books, selectedCategory])
 
+	const currentBookIndex = useMemo(() => {
+		if (!selectedBook) return -1
+		return filteredBooks.findIndex((b) => b.id === selectedBook.id)
+	}, [selectedBook, filteredBooks])
+
 	const handleBookClick = (book, position) => {
 		setOriginPosition(position)
 		setSelectedBook(book)
@@ -38,6 +43,18 @@ function App() {
 		setSelectedBook(null)
 		setOriginPosition(null)
 	}
+
+	const handleNavigate = useCallback(
+		(direction) => {
+			const newIndex = currentBookIndex + direction
+			if (newIndex >= 0 && newIndex < filteredBooks.length) {
+				setSelectedBook(filteredBooks[newIndex])
+				// Clear origin position for smooth transition (no lift animation)
+				setOriginPosition(null)
+			}
+		},
+		[currentBookIndex, filteredBooks]
+	)
 
 	if (error) {
 		return (
@@ -88,6 +105,9 @@ function App() {
 					isOpen={!!selectedBook}
 					onClose={handleCloseModal}
 					originPosition={originPosition}
+					onNavigate={handleNavigate}
+					hasPrev={currentBookIndex > 0}
+					hasNext={currentBookIndex < filteredBooks.length - 1}
 				/>
 			)}
 		</div>
