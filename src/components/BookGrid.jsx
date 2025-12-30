@@ -39,20 +39,22 @@ export function BookGrid({ books, onBookClick, liftedBookId, compactView }) {
 						transition={{
 							layout: {
 								type: "spring",
-								stiffness: 180,
-								damping: 22,
+								stiffness: 400,
+								damping: 40,
 								mass: 1,
 							},
 							opacity: {
-								duration: 0.5,
-								delay: !hasAnimatedIn ? index * 0.04 : 0,
-								ease: "easeOut",
+								duration: 0.38,
+								delay: !hasAnimatedIn ? index * 0.035 : 0,
+								ease: [0.16, 1, 0.3, 1],
 							},
 							y: {
 								type: "spring",
-								stiffness: 200,
-								damping: 20,
-								delay: !hasAnimatedIn ? index * 0.04 : 0,
+								stiffness: 420,
+								damping: 34,
+								mass: 1,
+								bounce: 0,
+								delay: !hasAnimatedIn ? index * 0.035 : 0,
 							},
 						}}
 					>
