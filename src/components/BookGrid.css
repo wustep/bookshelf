@@ -1,41 +1,40 @@
 .book-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 2rem;
-  padding: 1rem 0;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+	gap: 2rem;
+	padding: 1rem 0;
 }
 
 @media (min-width: 768px) {
-  .book-grid {
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 2.5rem;
-  }
+	.book-grid {
+		grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+		gap: 2.5rem;
+	}
 }
 
 @media (min-width: 1200px) {
-  .book-grid {
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  }
+	.book-grid {
+		grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+	}
 }
 
 .book-grid__empty {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 4rem 2rem;
-  text-align: center;
-  color: var(--text-secondary);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 4rem 2rem;
+	text-align: center;
+	color: var(--text-secondary);
 }
 
 .book-grid__empty-icon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  opacity: 0.5;
+	font-size: 3rem;
+	margin-bottom: 1rem;
+	opacity: 0.5;
 }
 
 .book-grid__empty p {
-  font-size: 1.1rem;
-  margin: 0;
+	font-size: 1.1rem;
+	margin: 0;
 }
-

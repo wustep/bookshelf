@@ -11,15 +11,16 @@ export function BookModal({ book, isOpen, onClose, originPosition }) {
 	const handleClose = useCallback(() => {
 		if (isClosingRef.current) return
 		isClosingRef.current = true
-		
+
 		// Clear any pending open timers
 		clearTimeout(timersRef.current.lift)
 		clearTimeout(timersRef.current.open)
-		
+
 		// Faster close if interrupting mid-animation
-		const isInterrupting = animationPhase === "lifting" || animationPhase === "opening"
+		const isInterrupting =
+			animationPhase === "lifting" || animationPhase === "opening"
 		const closeTime = isInterrupting ? 350 : 750
-		
+
 		setAnimationPhase(isInterrupting ? "closing-fast" : "closing")
 		timersRef.current.close = setTimeout(() => {
 			setAnimationPhase("idle")
@@ -77,30 +78,38 @@ export function BookModal({ book, isOpen, onClose, originPosition }) {
 	// Calculate origin offset for the lift animation
 	const centerX = typeof window !== "undefined" ? window.innerWidth / 2 : 0
 	const centerY = typeof window !== "undefined" ? window.innerHeight / 2 : 0
-	
+
 	// Modal dimensions (80vh max 600px height)
-	const modalWidth = Math.min(700, typeof window !== "undefined" ? window.innerWidth - 64 : 700)
-	const modalHeight = Math.min(600, typeof window !== "undefined" ? window.innerHeight * 0.8 : 600)
+	const modalWidth = Math.min(
+		700,
+		typeof window !== "undefined" ? window.innerWidth - 64 : 700
+	)
+	const modalHeight = Math.min(
+		600,
+		typeof window !== "undefined" ? window.innerHeight * 0.8 : 600
+	)
 	const coverWidthAtScale1 = modalWidth * 0.5 // Cover is 50% of modal
-	
+
 	// Card dimensions
 	const cardWidth = originPosition?.width ?? 200
 	const cardCoverHeight = originPosition?.coverHeight ?? 300
 	const cardCenterX = originPosition?.x ?? centerX
 	const cardCenterY = originPosition?.y ?? centerY
-	
+
 	// Scale so the cover matches the card width
-	const originScale = originPosition ? Math.min(cardWidth / coverWidthAtScale1, 0.85) : 0.4
-	
+	const originScale = originPosition
+		? Math.min(cardWidth / coverWidthAtScale1, 0.85)
+		: 0.4
+
 	// The cover's center is at 25% of modal width from the left edge
 	const coverCenterOffset = modalWidth * 0.25 * originScale
 	const offsetX = cardCenterX - centerX + coverCenterOffset
-	
+
 	// The modal's cover is taller than the card's cover when scaled to match width
 	// Adjust Y to account for this height difference
 	const modalCoverHeightAtScale = modalHeight * originScale
 	const heightDiff = modalCoverHeightAtScale - cardCoverHeight
-	const offsetY = cardCenterY - centerY + (heightDiff / 2)
+	const offsetY = cardCenterY - centerY + heightDiff / 2
 
 	// Check if book has a valid cover
 	const hasCover = book.cover && !imageError
@@ -119,16 +128,13 @@ export function BookModal({ book, isOpen, onClose, originPosition }) {
 				"--origin-scale": originScale,
 			}}
 		>
-			<div
-				className="book-modal__book"
-				style={{ "--book-color": book.color }}
-			>
+			<div className="book-modal__book" style={{ "--book-color": book.color }}>
 				{/* Front cover (flips open) */}
 				<div className="book-modal__cover">
 					<div className="book-modal__cover-front">
 						{hasCover ? (
-							<img 
-								src={book.cover} 
+							<img
+								src={book.cover}
 								alt={book.title}
 								onError={() => setImageError(true)}
 							/>

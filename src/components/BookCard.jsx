@@ -9,7 +9,9 @@ export function BookCard({ book, index, onClick, isLifted }) {
 		if (isLifted) return // Don't allow clicking lifted card
 		if (cardRef.current) {
 			const rect = cardRef.current.getBoundingClientRect()
-			const coverWrapper = cardRef.current.querySelector(".book-card__cover-wrapper")
+			const coverWrapper = cardRef.current.querySelector(
+				".book-card__cover-wrapper"
+			)
 			const coverRect = coverWrapper?.getBoundingClientRect() || rect
 			onClick(book, {
 				x: rect.left + rect.width / 2,
