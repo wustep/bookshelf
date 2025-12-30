@@ -1,4 +1,5 @@
 import { useState, useMemo, useCallback, useRef, useEffect } from "react"
+import { AnimatePresence } from "framer-motion"
 import { useBooks, useCategories } from "./hooks/useBooks"
 import { Header } from "./components/Header"
 import { CategoryBadges } from "./components/CategoryBadges"
@@ -144,32 +145,34 @@ function App() {
 	return (
 		<div className="app">
 			<div className="container">
-				{loading ? (
-					<Loader />
-				) : (
-					<>
-						<Header />
-						<CategoryBadges
-							categories={categories}
-							selectedCategory={selectedCategory}
-							onCategoryChange={setSelectedCategory}
-							bookCount={books.length}
-							onRandomBook={handleRandomBook}
-							compactView={compactView}
-							onToggleCompact={() => setCompactView(!compactView)}
-							sortBy={sortBy}
-							onSortChange={() =>
-								setSortBy(sortBy === "date" ? "alpha" : "date")
-							}
-						/>
-						<BookGrid
-							books={filteredBooks}
-							onBookClick={handleBookClick}
-							liftedBookId={selectedBook?.id}
-							compactView={compactView}
-						/>
-					</>
-				)}
+				<AnimatePresence mode="wait">
+					{loading ? (
+						<Loader key="loader" />
+					) : (
+						<div key="content">
+							<Header />
+							<CategoryBadges
+								categories={categories}
+								selectedCategory={selectedCategory}
+								onCategoryChange={setSelectedCategory}
+								bookCount={books.length}
+								onRandomBook={handleRandomBook}
+								compactView={compactView}
+								onToggleCompact={() => setCompactView(!compactView)}
+								sortBy={sortBy}
+								onSortChange={() =>
+									setSortBy(sortBy === "date" ? "alpha" : "date")
+								}
+							/>
+							<BookGrid
+								books={filteredBooks}
+								onBookClick={handleBookClick}
+								liftedBookId={selectedBook?.id}
+								compactView={compactView}
+							/>
+						</div>
+					)}
+				</AnimatePresence>
 			</div>
 
 			<footer className="footer">
