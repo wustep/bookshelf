@@ -37,13 +37,16 @@ Edit `public/data/books.json` to add your books:
       "title": "Design as Art",
       "author": "Bruno Munari",
       "year": 2024,
+      "date": "2024-03-15",
       "category": "Design",
       "color": "#E85D4C",
-      "cover": "https://...",
+      "cover": "/data/covers/design-as-art.jpg",
       "notes": "My notes about this book...",
       "summary": "A brief summary of the book...",
       "quotes": ["Quote 1", "Quote 2"],
-      "link": "https://goodreads.com/..."
+      "goodreadsLink": "https://goodreads.com/...",
+      "amazonLink": "https://amazon.com/...",
+      "link": "https://..."
     }
   ]
 }
@@ -56,14 +59,17 @@ Edit `public/data/books.json` to add your books:
 | `id` | string | Unique identifier |
 | `title` | string | Book title |
 | `author` | string | Author name |
-| `year` | number | Year you read it |
+| `year` | number | Year you read it (used if `date` not provided) |
+| `date` | string | Full date read in YYYY-MM-DD format (optional, takes precedence over `year`) |
 | `category` | string | Category (e.g., "Design", "Technology") |
 | `color` | string | Accent color hex code |
-| `cover` | string | Cover image URL (optional) |
-| `notes` | string | Your personal notes |
+| `cover` | string | Cover image URL or path (optional) |
+| `notes` | string | Your personal notes (optional) |
 | `summary` | string | Book summary (optional) |
 | `quotes` | array | Favorite quotes (optional) |
-| `link` | string | External link (e.g., Goodreads) |
+| `goodreadsLink` | string | Goodreads URL (optional) |
+| `amazonLink` | string | Amazon URL (optional) |
+| `link` | string | Other external link (optional) |
 
 ## Tech Stack
 

@@ -80,16 +80,16 @@ function App() {
 	)
 
 	const handleRandomBook = useCallback(() => {
-		if (books.length === 0) return
+		if (filteredBooks.length === 0) return
 
 		// Filter out recently selected books (unless we have no other choice)
-		let availableBooks = books.filter(
+		let availableBooks = filteredBooks.filter(
 			(book) => !recentRandomIds.current.includes(book.id)
 		)
 
-		// If all books were recently selected, reset and use all books
+		// If all books were recently selected, reset and use all filtered books
 		if (availableBooks.length === 0) {
-			availableBooks = books
+			availableBooks = filteredBooks
 			recentRandomIds.current = []
 		}
 
@@ -126,7 +126,7 @@ function App() {
 		}
 
 		setSelectedBook(randomBook)
-	}, [books])
+	}, [filteredBooks])
 
 	// Don't render anything until fonts are loaded
 	if (!fontsLoaded) {
