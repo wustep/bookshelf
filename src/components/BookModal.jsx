@@ -67,7 +67,7 @@ export function BookModal({
 		// Faster close if interrupting mid-animation or on mobile
 		const isInterrupting =
 			animationPhase === "lifting" || animationPhase === "opening"
-		const isMobile = window.innerWidth <= 550
+		const isMobile = window.innerWidth <= 600
 		const closeTime = isMobile ? 200 : isInterrupting ? 350 : 750
 
 		// If no origin (after navigation), find the current book's position
@@ -123,7 +123,7 @@ export function BookModal({
 			setAnimationPhase("lifting")
 
 			// Use faster timing on mobile (no 3D book animation)
-			const isMobile = window.innerWidth <= 550
+			const isMobile = window.innerWidth <= 600
 			const liftDelay = isMobile ? 50 : 350
 			const openDelay = isMobile ? 200 : 900
 

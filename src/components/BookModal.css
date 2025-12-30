@@ -10,26 +10,7 @@
 	background: rgba(0, 0, 0, 0);
 	backdrop-filter: blur(0px);
 	transition: background 0.4s ease, backdrop-filter 0.4s ease;
-	overflow: auto;
-	overscroll-behavior: contain;
-	scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
-}
-
-.book-modal::-webkit-scrollbar {
-	width: 10px;
-}
-
-.book-modal::-webkit-scrollbar-track {
-	background: transparent;
-}
-
-.book-modal::-webkit-scrollbar-thumb {
-	background: rgba(255, 255, 255, 0.3);
-	border-radius: 5px;
-}
-
-.book-modal::-webkit-scrollbar-thumb:hover {
-	background: rgba(255, 255, 255, 0.5);
+	overflow: hidden;
 }
 
 .book-modal--lifting,
@@ -400,10 +381,29 @@
 	height: 100%;
 	padding: 1.75rem 2rem;
 	overflow-y: auto;
+	overscroll-behavior: contain;
 	color: #2a2a2a;
 	opacity: 0;
 	transform: translateX(10px);
 	transition: opacity 0.3s ease, transform 0.3s ease;
+	scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+.book-modal__content::-webkit-scrollbar {
+	width: 8px;
+}
+
+.book-modal__content::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+.book-modal__content::-webkit-scrollbar-thumb {
+	background: rgba(0, 0, 0, 0.2);
+	border-radius: 4px;
+}
+
+.book-modal__content::-webkit-scrollbar-thumb:hover {
+	background: rgba(0, 0, 0, 0.3);
 }
 
 .book-modal--open .book-modal__content {
@@ -595,6 +595,15 @@
 
 	.book-modal__content {
 		color: #e5e5e5;
+		scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+	}
+
+	.book-modal__content::-webkit-scrollbar-thumb {
+		background: rgba(255, 255, 255, 0.2);
+	}
+
+	.book-modal__content::-webkit-scrollbar-thumb:hover {
+		background: rgba(255, 255, 255, 0.3);
 	}
 
 	.book-modal__title {
@@ -633,22 +642,21 @@
 	}
 }
 
-/* Mobile - simpler modal without book animation */
-@media (max-width: 550px) {
+/* Small screens - simpler modal without book animation */
+@media (max-width: 600px) {
 	.book-modal {
 		padding: 0.75rem;
-		align-items: flex-start;
-		overflow-y: auto;
+		align-items: center;
+		overflow: hidden;
 	}
 
 	/* Skip the book animation, show content directly */
 	.book-modal__book {
 		width: 100%;
 		max-width: none;
-		height: auto;
+		height: calc(100vh - 1.5rem);
+		height: calc(100dvh - 1.5rem);
 		max-height: none;
-		min-height: calc(100vh - 1.5rem);
-		min-height: calc(100dvh - 1.5rem);
 		perspective: none;
 	}
 
@@ -662,15 +670,16 @@
 		position: relative;
 		left: 0;
 		width: 100%;
-		height: auto;
-		min-height: calc(100vh - 1.5rem);
-		min-height: calc(100dvh - 1.5rem);
+		height: 100%;
 		border-radius: 12px;
 		opacity: 1;
+		overflow: hidden;
 	}
 
 	.book-modal__content {
+		height: 100%;
 		padding: 1.25rem 1.25rem 1.5rem;
+		overflow-y: auto;
 	}
 
 	.book-modal__title {
