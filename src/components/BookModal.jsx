@@ -55,10 +55,11 @@ export function BookModal({
 		clearTimeout(timersRef.current.lift)
 		clearTimeout(timersRef.current.open)
 
-		// Faster close if interrupting mid-animation
+		// Faster close if interrupting mid-animation or on mobile
 		const isInterrupting =
 			animationPhase === "lifting" || animationPhase === "opening"
-		const closeTime = isInterrupting ? 350 : 750
+		const isMobile = window.innerWidth <= 550
+		const closeTime = isMobile ? 200 : isInterrupting ? 350 : 750
 
 		// If no origin (after navigation), find the current book's position
 		if (!originPosition && book?.id && modalRef.current) {
@@ -112,17 +113,22 @@ export function BookModal({
 			setImageError(false) // Reset image error state
 			setAnimationPhase("lifting")
 
+			// Use faster timing on mobile (no 3D book animation)
+			const isMobile = window.innerWidth <= 550
+			const liftDelay = isMobile ? 50 : 350
+			const openDelay = isMobile ? 200 : 900
+
 			timersRef.current.lift = setTimeout(() => {
 				if (!isClosingRef.current) {
 					setAnimationPhase("opening")
 				}
-			}, 350)
+			}, liftDelay)
 
 			timersRef.current.open = setTimeout(() => {
 				if (!isClosingRef.current) {
 					setAnimationPhase("open")
 				}
-			}, 900)
+			}, openDelay)
 		}
 
 		return () => {

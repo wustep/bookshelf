@@ -677,7 +677,7 @@
 	/* Fast animations for mobile */
 	.book-modal--lifting .book-modal__book,
 	.book-modal--opening .book-modal__book {
-		animation: mobileAppear 0.25s ease-out forwards;
+		animation: mobileAppear 0.15s ease-out forwards;
 	}
 
 	.book-modal--open .book-modal__book {
