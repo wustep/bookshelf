@@ -105,8 +105,8 @@
 			"color": "#2C3E50",
 			"cover": "/data/covers/make-something-wonderful.jpg",
 			"notes": "Steve Jobs in his own words. Curated speeches, interviews, and correspondence.",
-			"goodreadsLink": "https://www.goodreads.com/book/show/125673298-make-something-wonderful",
-			"amazonLink": ""
+			"link": "https://book.stevejobsarchive.com/",
+			"goodreadsLink": "https://www.goodreads.com/book/show/125673298-make-something-wonderful"
 		},
 		{
 			"id": "10",

@@ -341,8 +341,20 @@ export function BookModal({
 							</section>
 						)}
 
-						{(currentBook.goodreadsLink || currentBook.amazonLink) && (
+						{(currentBook.goodreadsLink ||
+							currentBook.amazonLink ||
+							currentBook.link) && (
 							<div className="book-modal__links">
+								{currentBook.link && (
+									<a
+										href={currentBook.link}
+										target="_blank"
+										rel="noopener noreferrer"
+										className="book-modal__link"
+									>
+										View Book →
+									</a>
+								)}
 								{currentBook.goodreadsLink && (
 									<a
 										href={currentBook.goodreadsLink}
