@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback, useRef } from "react"
+import { useState, useMemo, useCallback, useRef, useEffect } from "react"
 import { useBooks, useCategories } from "./hooks/useBooks"
 import { Header } from "./components/Header"
 import { CategoryBadges } from "./components/CategoryBadges"
@@ -8,8 +8,14 @@ import { Loader } from "./components/Loader"
 import "./App.css"
 
 function App() {
+	const [fontsLoaded, setFontsLoaded] = useState(false)
 	const { books, loading, error } = useBooks()
 	const categories = useCategories(books)
+
+	// Block rendering until fonts are loaded
+	useEffect(() => {
+		document.fonts.ready.then(() => setFontsLoaded(true))
+	}, [])
 
 	const [selectedCategory, setSelectedCategory] = useState("")
 	const [selectedBook, setSelectedBook] = useState(null)
@@ -117,6 +123,11 @@ function App() {
 		setSelectedBook(randomBook)
 	}, [books])
 
+	// Don't render anything until fonts are loaded
+	if (!fontsLoaded) {
+		return null
+	}
+
 	if (error) {
 		return (
 			<div className="app">
@@ -148,7 +159,9 @@ function App() {
 							compactView={compactView}
 							onToggleCompact={() => setCompactView(!compactView)}
 							sortBy={sortBy}
-							onSortChange={() => setSortBy(sortBy === "date" ? "alpha" : "date")}
+							onSortChange={() =>
+								setSortBy(sortBy === "date" ? "alpha" : "date")
+							}
 						/>
 						<BookGrid
 							books={filteredBooks}

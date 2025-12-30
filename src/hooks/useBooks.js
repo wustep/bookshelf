@@ -18,9 +18,9 @@ export function useBooks() {
 				setError(err.message)
 				console.error("Failed to load books:", err)
 			} finally {
-				// Ensure minimum 500ms loading time for smooth transition
+				// Ensure minimum 800ms loading time for smooth transition
 				const elapsed = Date.now() - startTime
-				const remaining = Math.max(0, 500 - elapsed)
+				const remaining = Math.max(0, 800 - elapsed)
 				setTimeout(() => setLoading(false), remaining)
 			}
 		}
