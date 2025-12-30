@@ -1,7 +1,7 @@
 import { BookCard } from "./BookCard"
 import "./BookGrid.css"
 
-export function BookGrid({ books, onBookClick }) {
+export function BookGrid({ books, onBookClick, liftedBookId }) {
 	if (books.length === 0) {
 		return (
 			<div className="book-grid__empty">
@@ -11,6 +11,10 @@ export function BookGrid({ books, onBookClick }) {
 		)
 	}
 
+	const handleBookClick = (book, position) => {
+		onBookClick(book, position)
+	}
+
 	return (
 		<div className="book-grid">
 			{books.map((book, index) => (
@@ -18,7 +22,8 @@ export function BookGrid({ books, onBookClick }) {
 					key={book.id}
 					book={book}
 					index={index}
-					onClick={onBookClick}
+					onClick={handleBookClick}
+					isLifted={book.id === liftedBookId}
 				/>
 			))}
 		</div>

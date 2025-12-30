@@ -1,22 +1,40 @@
-import { useState } from "react"
+import { useState, useRef } from "react"
 import "./BookCard.css"
 
-export function BookCard({ book, index, onClick }) {
+export function BookCard({ book, index, onClick, isLifted }) {
 	const [imageError, setImageError] = useState(false)
+	const cardRef = useRef(null)
 
 	const handleClick = () => {
-		onClick(book)
+		if (isLifted) return // Don't allow clicking lifted card
+		if (cardRef.current) {
+			const rect = cardRef.current.getBoundingClientRect()
+			const coverWrapper = cardRef.current.querySelector(".book-card__cover-wrapper")
+			const coverRect = coverWrapper?.getBoundingClientRect() || rect
+			onClick(book, {
+				x: rect.left + rect.width / 2,
+				y: rect.top + rect.height / 2,
+				width: rect.width,
+				height: rect.height,
+				coverWidth: coverRect.width,
+				coverHeight: coverRect.height,
+				hasCover: !!(book.cover && !imageError),
+			})
+		} else {
+			onClick(book, null)
+		}
 	}
 
 	return (
 		<article
-			className="book-card"
+			ref={cardRef}
+			className={`book-card ${isLifted ? "book-card--lifted" : ""}`}
 			style={{
 				"--book-color": book.color,
 				"--animation-delay": `${index * 0.05}s`,
 			}}
 			onClick={handleClick}
-			tabIndex={0}
+			tabIndex={isLifted ? -1 : 0}
 			onKeyDown={(e) => e.key === "Enter" && handleClick()}
 			role="button"
 			aria-label={`Open ${book.title} by ${book.author}`}
@@ -46,6 +64,9 @@ export function BookCard({ book, index, onClick }) {
 			</div>
 
 			<div className="book-card__year">{book.year}</div>
+
+			{/* Placeholder overlay when book is lifted */}
+			{isLifted && <div className="book-card__placeholder" />}
 		</article>
 	)
 }

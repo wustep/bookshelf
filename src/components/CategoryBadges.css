@@ -1,0 +1,74 @@
+.category-badges {
+	padding: 1.5rem 0;
+	margin-bottom: 0.5rem;
+}
+
+.category-badges__list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+}
+
+.category-badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+	padding: 0.5rem 1rem;
+	border: 1px solid var(--border-color);
+	border-radius: 20px;
+	background: var(--card-bg);
+	color: var(--text-secondary);
+	font-family: inherit;
+	font-size: 0.85rem;
+	font-weight: 500;
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.category-badge:hover {
+	border-color: var(--accent-color);
+	color: var(--accent-color);
+	transform: translateY(-1px);
+}
+
+.category-badge--active {
+	background: var(--accent-color);
+	border-color: var(--accent-color);
+	color: white;
+}
+
+.category-badge--active:hover {
+	background: var(--accent-color);
+	border-color: var(--accent-color);
+	color: white;
+	opacity: 0.9;
+}
+
+.category-badge__count {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 1.5rem;
+	height: 1.5rem;
+	padding: 0 0.4rem;
+	background: rgba(0, 0, 0, 0.1);
+	border-radius: 10px;
+	font-size: 0.75rem;
+	font-weight: 600;
+}
+
+.category-badge--active .category-badge__count {
+	background: rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 640px) {
+	.category-badges__list {
+		gap: 0.4rem;
+	}
+
+	.category-badge {
+		padding: 0.4rem 0.75rem;
+		font-size: 0.8rem;
+	}
+}
+

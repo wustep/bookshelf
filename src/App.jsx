@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react"
-import { useBooks, useCategories, useYears } from "./hooks/useBooks"
+import { useBooks, useCategories } from "./hooks/useBooks"
 import { Header } from "./components/Header"
-import { FilterBar } from "./components/FilterBar"
+import { CategoryBadges } from "./components/CategoryBadges"
 import { BookGrid } from "./components/BookGrid"
 import { BookModal } from "./components/BookModal"
 import { Loader } from "./components/Loader"
@@ -10,14 +10,12 @@ import "./App.css"
 function App() {
 	const { books, loading, error } = useBooks()
 	const categories = useCategories(books)
-	const years = useYears(books)
 
 	const [selectedCategory, setSelectedCategory] = useState("")
-	const [selectedYear, setSelectedYear] = useState("")
-	const [sortBy, setSortBy] = useState("recent")
 	const [selectedBook, setSelectedBook] = useState(null)
+	const [originPosition, setOriginPosition] = useState(null)
 
-	const filteredAndSortedBooks = useMemo(() => {
+	const filteredBooks = useMemo(() => {
 		let result = [...books]
 
 		// Filter by category
@@ -25,40 +23,20 @@ function App() {
 			result = result.filter((book) => book.category === selectedCategory)
 		}
 
-		// Filter by year
-		if (selectedYear) {
-			result = result.filter(
-				(book) => book.year === parseInt(selectedYear, 10)
-			)
-		}
-
-		// Sort
-		switch (sortBy) {
-			case "recent":
-				result.sort((a, b) => b.year - a.year)
-				break
-			case "oldest":
-				result.sort((a, b) => a.year - b.year)
-				break
-			case "title":
-				result.sort((a, b) => a.title.localeCompare(b.title))
-				break
-			case "author":
-				result.sort((a, b) => a.author.localeCompare(b.author))
-				break
-			default:
-				break
-		}
+		// Sort by most recent
+		result.sort((a, b) => b.year - a.year)
 
 		return result
-	}, [books, selectedCategory, selectedYear, sortBy])
+	}, [books, selectedCategory])
 
-	const handleBookClick = (book) => {
+	const handleBookClick = (book, position) => {
+		setOriginPosition(position)
 		setSelectedBook(book)
 	}
 
 	const handleCloseModal = () => {
 		setSelectedBook(null)
+		setOriginPosition(null)
 	}
 
 	if (error) {
@@ -83,20 +61,16 @@ function App() {
 					<Loader />
 				) : (
 					<>
-						<FilterBar
+						<CategoryBadges
 							categories={categories}
-							years={years}
 							selectedCategory={selectedCategory}
-							selectedYear={selectedYear}
 							onCategoryChange={setSelectedCategory}
-							onYearChange={setSelectedYear}
-							sortBy={sortBy}
-							onSortChange={setSortBy}
-							bookCount={filteredAndSortedBooks.length}
+							bookCount={books.length}
 						/>
 						<BookGrid
-							books={filteredAndSortedBooks}
+							books={filteredBooks}
 							onBookClick={handleBookClick}
+							liftedBookId={selectedBook?.id}
 						/>
 					</>
 				)}
@@ -113,6 +87,7 @@ function App() {
 					book={selectedBook}
 					isOpen={!!selectedBook}
 					onClose={handleCloseModal}
+					originPosition={originPosition}
 				/>
 			)}
 		</div>

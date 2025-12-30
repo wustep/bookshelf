@@ -1,26 +1,38 @@
 import { useEffect, useRef, useState, useCallback } from "react"
 import "./BookModal.css"
 
-export function BookModal({ book, isOpen, onClose }) {
-	const [isAnimating, setIsAnimating] = useState(false)
-	const [isClosing, setIsClosing] = useState(false)
+export function BookModal({ book, isOpen, onClose, originPosition }) {
+	const [animationPhase, setAnimationPhase] = useState("idle") // idle, lifting, opening, open, closing
+	const [imageError, setImageError] = useState(false)
 	const modalRef = useRef(null)
 
 	const handleClose = useCallback(() => {
-		if (isClosing) return
-		setIsClosing(true)
+		if (animationPhase === "closing") return
+		setAnimationPhase("closing")
 		setTimeout(() => {
-			setIsClosing(false)
-			setIsAnimating(false)
+			setAnimationPhase("idle")
 			onClose()
-		}, 500)
-	}, [onClose, isClosing])
+		}, 600)
+	}, [onClose, animationPhase])
 
 	useEffect(() => {
-		if (isOpen) {
-			setIsAnimating(true)
-			setIsClosing(false)
+		if (isOpen && animationPhase === "idle") {
+			setImageError(false) // Reset image error state
+			setAnimationPhase("lifting")
 			document.body.style.overflow = "hidden"
+
+			const liftTimer = setTimeout(() => {
+				setAnimationPhase("opening")
+			}, 350)
+
+			const openTimer = setTimeout(() => {
+				setAnimationPhase("open")
+			}, 900)
+
+			return () => {
+				clearTimeout(liftTimer)
+				clearTimeout(openTimer)
+			}
 		}
 		return () => {
 			document.body.style.overflow = ""
@@ -29,30 +41,50 @@ export function BookModal({ book, isOpen, onClose }) {
 
 	useEffect(() => {
 		const handleEscape = (e) => {
-			if (e.key === "Escape" && isOpen && !isClosing) {
+			if (e.key === "Escape" && isOpen && animationPhase !== "closing") {
 				handleClose()
 			}
 		}
 		window.addEventListener("keydown", handleEscape)
 		return () => window.removeEventListener("keydown", handleEscape)
-	}, [isOpen, isClosing, handleClose])
+	}, [isOpen, animationPhase, handleClose])
 
 	const handleBackdropClick = (e) => {
-		if (e.target === modalRef.current) {
+		if (e.target === modalRef.current && animationPhase === "open") {
 			handleClose()
 		}
 	}
 
-	if (!isOpen && !isAnimating) return null
+	if (!isOpen && animationPhase === "idle") return null
+
+	// Calculate origin offset for the lift animation
+	const centerX = typeof window !== "undefined" ? window.innerWidth / 2 : 0
+	const centerY = typeof window !== "undefined" ? window.innerHeight / 2 : 0
+	const originX = originPosition?.x ?? centerX
+	const originY = originPosition?.y ?? centerY
+	const offsetX = originX - centerX
+	const offsetY = originY - centerY
+	
+	// Use cover dimensions for better scaling
+	const targetWidth = Math.min(700, typeof window !== "undefined" ? window.innerWidth - 64 : 700)
+	const originScale = originPosition ? Math.min(originPosition.coverWidth / targetWidth, 0.5) : 0.3
+
+	// Check if book has a valid cover
+	const hasCover = book.cover && !imageError
 
 	return (
 		<div
 			ref={modalRef}
-			className={`book-modal ${isClosing ? "closing" : ""}`}
+			className={`book-modal book-modal--${animationPhase}`}
 			onClick={handleBackdropClick}
 			role="dialog"
 			aria-modal="true"
 			aria-labelledby="modal-title"
+			style={{
+				"--origin-x": `${offsetX}px`,
+				"--origin-y": `${offsetY}px`,
+				"--origin-scale": originScale,
+			}}
 		>
 			<div
 				className="book-modal__book"
@@ -66,8 +98,12 @@ export function BookModal({ book, isOpen, onClose }) {
 				{/* Front cover (flips open) */}
 				<div className="book-modal__cover">
 					<div className="book-modal__cover-front">
-						{book.cover ? (
-							<img src={book.cover} alt={book.title} />
+						{hasCover ? (
+							<img 
+								src={book.cover} 
+								alt={book.title}
+								onError={() => setImageError(true)}
+							/>
 						) : (
 							<div className="book-modal__cover-placeholder">
 								<span className="book-modal__cover-title">{book.title}</span>
