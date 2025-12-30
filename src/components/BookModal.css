@@ -545,18 +545,40 @@
 	}
 }
 
-/* Mobile adjustments */
-@media (max-width: 640px) {
+/* Mobile - simpler modal without book animation */
+@media (max-width: 550px) {
 	.book-modal {
-		padding: 1rem;
+		padding: 0.75rem;
+		align-items: flex-start;
+		overflow-y: auto;
 	}
 
+	/* Skip the book animation, show content directly */
 	.book-modal__book {
-		max-height: 85vh;
+		width: 100%;
+		max-width: none;
+		height: auto;
+		max-height: none;
+		min-height: calc(100vh - 1.5rem);
+		min-height: calc(100dvh - 1.5rem);
+		perspective: none;
 	}
 
+	/* Hide the cover entirely on mobile */
 	.book-modal__cover {
-		width: 45%;
+		display: none;
+	}
+
+	/* Pages become the full modal */
+	.book-modal__pages {
+		position: relative;
+		left: 0;
+		width: 100%;
+		height: auto;
+		min-height: calc(100vh - 1.5rem);
+		min-height: calc(100dvh - 1.5rem);
+		border-radius: 12px;
+		opacity: 1;
 	}
 
 	.book-modal__content {
@@ -565,5 +587,54 @@
 
 	.book-modal__title {
 		font-size: 1.5rem;
+	}
+
+	.book-modal__close {
+		opacity: 1;
+	}
+
+	/* Fast animations for mobile */
+	.book-modal--lifting .book-modal__book,
+	.book-modal--opening .book-modal__book {
+		animation: mobileAppear 0.25s ease-out forwards;
+	}
+
+	.book-modal--open .book-modal__book {
+		transform: none;
+		opacity: 1;
+	}
+
+	.book-modal--lifting .book-modal__pages,
+	.book-modal--opening .book-modal__pages,
+	.book-modal--open .book-modal__pages {
+		opacity: 1;
+		animation: none;
+	}
+
+	.book-modal--closing .book-modal__book,
+	.book-modal--closing-fast .book-modal__book {
+		animation: mobileDisappear 0.2s ease-in forwards;
+	}
+
+	@keyframes mobileAppear {
+		from {
+			opacity: 0;
+			transform: translateY(30px) scale(0.95);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0) scale(1);
+		}
+	}
+
+	@keyframes mobileDisappear {
+		from {
+			opacity: 1;
+			transform: translateY(0) scale(1);
+		}
+		to {
+			opacity: 0;
+			transform: translateY(30px) scale(0.95);
+		}
 	}
 }
