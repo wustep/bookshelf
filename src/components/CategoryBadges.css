@@ -44,14 +44,22 @@
 }
 
 .category-badge--active {
-	background: var(--accent-color);
-	border-color: var(--accent-color);
+	background: linear-gradient(
+		135deg,
+		color-mix(in srgb, var(--accent-color) 75%, var(--text-primary)) 0%,
+		var(--accent-color) 100%
+	);
+	border-color: transparent;
 	color: white;
 }
 
 .category-badge--active:hover {
-	background: var(--accent-color);
-	border-color: var(--accent-color);
+	background: linear-gradient(
+		135deg,
+		color-mix(in srgb, var(--accent-color) 75%, var(--text-primary)) 0%,
+		var(--accent-color) 100%
+	);
+	border-color: transparent;
 	color: white;
 	opacity: 0.9;
 }
@@ -123,7 +131,7 @@
 	font-size: 0.75rem;
 	font-weight: 500;
 	white-space: nowrap;
-	border-radius: 6px;
+	border-radius: 8px;
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 	opacity: 0;
 	visibility: hidden;
