@@ -5,24 +5,33 @@ export function BookModal({ book, isOpen, onClose, originPosition, onNavigate, h
 	const [animationPhase, setAnimationPhase] = useState("idle") // idle, lifting, opening, open, closing
 	const [imageError, setImageError] = useState(false)
 	const [isTransitioning, setIsTransitioning] = useState(false)
+	const [displayedBook, setDisplayedBook] = useState(book)
 	const modalRef = useRef(null)
 	const isClosingRef = useRef(false)
-	const timersRef = useRef({ lift: null, open: null, close: null })
-	const prevBookIdRef = useRef(book?.id)
+	const timersRef = useRef({ lift: null, open: null, close: null, transition: null })
 
-	// Handle book change transition
+	// Handle book change transition - fade out, swap, fade in
 	useEffect(() => {
-		if (book?.id !== prevBookIdRef.current && animationPhase === "open") {
+		if (book?.id !== displayedBook?.id && animationPhase === "open") {
+			// Start fade out
 			setIsTransitioning(true)
-			setImageError(false)
-			const timer = setTimeout(() => {
-				setIsTransitioning(false)
-			}, 250)
-			prevBookIdRef.current = book?.id
-			return () => clearTimeout(timer)
+			
+			// After fade out, swap the book and fade in
+			timersRef.current.transition = setTimeout(() => {
+				setDisplayedBook(book)
+				setImageError(false)
+				// Small delay before fade in
+				setTimeout(() => {
+					setIsTransitioning(false)
+				}, 50)
+			}, 150) // Fade out duration
+			
+			return () => clearTimeout(timersRef.current.transition)
+		} else if (!displayedBook && book) {
+			// Initial book set
+			setDisplayedBook(book)
 		}
-		prevBookIdRef.current = book?.id
-	}, [book?.id, animationPhase])
+	}, [book, displayedBook, animationPhase])
 
 	const handleClose = useCallback(() => {
 		if (isClosingRef.current) return
@@ -134,8 +143,9 @@ export function BookModal({ book, isOpen, onClose, originPosition, onNavigate, h
 	const heightDiff = modalCoverHeightAtScale - cardCoverHeight
 	const offsetY = cardCenterY - centerY + heightDiff / 2
 
-	// Check if book has a valid cover
-	const hasCover = book.cover && !imageError
+	// Use displayedBook for content (delayed during transition)
+	const currentBook = displayedBook || book
+	const hasCover = currentBook?.cover && !imageError
 
 	return (
 		<div
@@ -157,14 +167,14 @@ export function BookModal({ book, isOpen, onClose, originPosition, onNavigate, h
 					<div className="book-modal__cover-front">
 						{hasCover ? (
 							<img
-								src={book.cover}
-								alt={book.title}
+								src={currentBook.cover}
+								alt={currentBook.title}
 								onError={() => setImageError(true)}
 							/>
 						) : (
 							<div className="book-modal__cover-placeholder">
-								<span className="book-modal__cover-title">{book.title}</span>
-								<span className="book-modal__cover-author">{book.author}</span>
+								<span className="book-modal__cover-title">{currentBook.title}</span>
+								<span className="book-modal__cover-author">{currentBook.author}</span>
 							</div>
 						)}
 					</div>
@@ -203,33 +213,33 @@ export function BookModal({ book, isOpen, onClose, originPosition, onNavigate, h
 
 					<div className="book-modal__content">
 						<header className="book-modal__header">
-							<span className="book-modal__category">{book.category}</span>
+							<span className="book-modal__category">{currentBook.category}</span>
 							<h2 id="modal-title" className="book-modal__title">
-								{book.title}
+								{currentBook.title}
 							</h2>
-							<p className="book-modal__author">by {book.author}</p>
-							<span className="book-modal__year">{book.year}</span>
+							<p className="book-modal__author">by {currentBook.author}</p>
+							<span className="book-modal__year">{currentBook.year}</span>
 						</header>
 
-						{book.notes && (
+						{currentBook.notes && (
 							<section className="book-modal__section">
 								<h3>Notes</h3>
-								<p>{book.notes}</p>
+								<p>{currentBook.notes}</p>
 							</section>
 						)}
 
-						{book.summary && (
+						{currentBook.summary && (
 							<section className="book-modal__section">
 								<h3>Summary</h3>
-								<p>{book.summary}</p>
+								<p>{currentBook.summary}</p>
 							</section>
 						)}
 
-						{book.quotes && book.quotes.length > 0 && (
+						{currentBook.quotes && currentBook.quotes.length > 0 && (
 							<section className="book-modal__section">
 								<h3>Quotes</h3>
 								<ul className="book-modal__quotes">
-									{book.quotes.map((quote, index) => (
+									{currentBook.quotes.map((quote, index) => (
 										<li key={index} className="book-modal__quote">
 											<blockquote>"{quote}"</blockquote>
 										</li>
@@ -238,9 +248,9 @@ export function BookModal({ book, isOpen, onClose, originPosition, onNavigate, h
 							</section>
 						)}
 
-						{book.link && (
+						{currentBook.link && (
 							<a
-								href={book.link}
+								href={currentBook.link}
 								target="_blank"
 								rel="noopener noreferrer"
 								className="book-modal__link"
