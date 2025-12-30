@@ -86,6 +86,59 @@ body::before {
 	z-index: -1;
 }
 
+/* Decorative header gradient glow */
+body::after {
+	content: "";
+	position: fixed;
+	top: -50px;
+	right: 5%;
+	width: 50%;
+	height: 250px;
+	background: radial-gradient(
+			ellipse 60% 50% at 50% 40%,
+			var(--accent-color) 0%,
+			transparent 60%
+		),
+		radial-gradient(ellipse 40% 40% at 20% 60%, #e07a5f 0%, transparent 50%),
+		radial-gradient(ellipse 35% 35% at 80% 55%, #81b29a 0%, transparent 45%);
+	opacity: 0.18;
+	pointer-events: none;
+	z-index: 0;
+	filter: blur(30px);
+	animation: gradientFloat 15s ease-in-out infinite;
+}
+
+@keyframes gradientFloat {
+	0%,
+	100% {
+		transform: translate(0, 0) scale(1);
+		opacity: 0.18;
+	}
+	50% {
+		transform: translate(-5px, 3px) scale(1.02);
+		opacity: 0.22;
+	}
+}
+
+@media (max-width: 640px) {
+	body::after {
+		width: 80%;
+		right: -10%;
+		top: -30px;
+		height: 200px;
+		opacity: 0.12;
+		filter: blur(25px);
+	}
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+	body::after {
+		width: 60%;
+		right: 0;
+		opacity: 0.15;
+	}
+}
+
 img {
 	display: block;
 	max-width: 100%;

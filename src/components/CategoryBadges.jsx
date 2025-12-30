@@ -1,6 +1,6 @@
 import "./CategoryBadges.css"
 
-export function CategoryBadges({ categories, selectedCategory, onCategoryChange, bookCount }) {
+export function CategoryBadges({ categories, selectedCategory, onCategoryChange, bookCount, onRandomBook }) {
 	return (
 		<div className="category-badges">
 			<div className="category-badges__list">
@@ -21,6 +21,17 @@ export function CategoryBadges({ categories, selectedCategory, onCategoryChange,
 					</button>
 				))}
 			</div>
+			{onRandomBook && (
+				<button
+					className="category-badges__random"
+					onClick={onRandomBook}
+					aria-label="Open a random book"
+					title="Surprise me!"
+				>
+					<span>🎲</span>
+					<span>Random</span>
+				</button>
+			)}
 		</div>
 	)
 }

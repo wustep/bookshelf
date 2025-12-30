@@ -56,6 +56,37 @@ function App() {
 		[currentBookIndex, filteredBooks]
 	)
 
+	const handleRandomBook = useCallback(() => {
+		if (books.length === 0) return
+		const randomIndex = Math.floor(Math.random() * books.length)
+		const randomBook = books[randomIndex]
+
+		// Find the book card and scroll to it
+		const bookCard = document.querySelector(`[data-book-id="${randomBook.id}"]`)
+		if (bookCard) {
+			bookCard.scrollIntoView({ behavior: "instant", block: "center" })
+
+			// Get position after scroll
+			const rect = bookCard.getBoundingClientRect()
+			const coverWrapper = bookCard.querySelector(".book-card__cover-wrapper")
+			const coverRect = coverWrapper?.getBoundingClientRect() || rect
+
+			setOriginPosition({
+				x: rect.left + rect.width / 2,
+				y: coverRect.top + coverRect.height / 2,
+				width: rect.width,
+				height: rect.height,
+				coverWidth: coverRect.width,
+				coverHeight: coverRect.height,
+				hasCover: !!randomBook.cover,
+			})
+		} else {
+			setOriginPosition(null)
+		}
+
+		setSelectedBook(randomBook)
+	}, [books])
+
 	if (error) {
 		return (
 			<div className="app">
@@ -83,6 +114,7 @@ function App() {
 							selectedCategory={selectedCategory}
 							onCategoryChange={setSelectedCategory}
 							bookCount={books.length}
+							onRandomBook={handleRandomBook}
 						/>
 						<BookGrid
 							books={filteredBooks}
@@ -95,7 +127,10 @@ function App() {
 
 			<footer className="footer">
 				<p>
-					Built with <span className="heart">♥</span> for book lovers
+					Built with <span className="heart">♥</span> by{" "}
+					<a href="https://wustep.me" target="_blank">
+						Stephen Wu
+					</a>
 				</p>
 			</footer>
 

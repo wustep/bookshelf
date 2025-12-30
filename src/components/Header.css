@@ -1,38 +1,10 @@
 .header {
 	position: relative;
-	padding: 3rem 0 2rem;
+	padding: 3rem 0 1rem;
 	overflow: visible;
 }
 
-/* Gradient decoration - soft ambient glow behind title */
-.header::before {
-	content: "";
-	position: absolute;
-	top: -20%;
-	right: 5%;
-	width: 50%;
-	height: 160%;
-	background: radial-gradient(
-			ellipse 60% 50% at 50% 40%,
-			var(--accent-color) 0%,
-			transparent 60%
-		),
-		radial-gradient(
-			ellipse 40% 40% at 20% 60%,
-			#e07a5f 0%,
-			transparent 50%
-		),
-		radial-gradient(
-			ellipse 35% 35% at 80% 55%,
-			#81b29a 0%,
-			transparent 45%
-		);
-	opacity: 0.18;
-	pointer-events: none;
-	z-index: 0;
-	filter: blur(30px);
-	animation: gradientFloat 15s ease-in-out infinite;
-}
+/* Gradient decoration - moved to index.css for proper stacking */
 
 @keyframes gradientFloat {
 	0%,
@@ -101,25 +73,4 @@
 	color: var(--text-secondary);
 	margin: 0.5rem 0 0;
 	font-style: italic;
-}
-
-/* Responsive: adjust gradient for smaller screens */
-@media (max-width: 640px) {
-	.header::before {
-		width: 80%;
-		right: -10%;
-		top: -10%;
-		height: 140%;
-		opacity: 0.12;
-		filter: blur(25px);
-	}
-}
-
-/* Medium screens */
-@media (min-width: 641px) and (max-width: 1024px) {
-	.header::before {
-		width: 60%;
-		right: 0;
-		opacity: 0.15;
-	}
 }
