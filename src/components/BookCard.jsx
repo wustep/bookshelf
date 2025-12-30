@@ -1,7 +1,7 @@
 import { useState, useRef } from "react"
 import "./BookCard.css"
 
-export function BookCard({ book, index, onClick, isLifted }) {
+export function BookCard({ book, index, onClick, isLifted, compact }) {
 	const [imageError, setImageError] = useState(false)
 	const cardRef = useRef(null)
 
@@ -30,7 +30,7 @@ export function BookCard({ book, index, onClick, isLifted }) {
 	return (
 		<article
 			ref={cardRef}
-			className={`book-card ${isLifted ? "book-card--lifted" : ""}`}
+			className={`book-card ${isLifted ? "book-card--lifted" : ""} ${compact ? "book-card--compact" : ""}`}
 			data-book-id={book.id}
 			style={{
 				"--book-color": book.color,
@@ -60,13 +60,17 @@ export function BookCard({ book, index, onClick, isLifted }) {
 				<div className="book-card__color-accent" />
 			</div>
 
-			<div className="book-card__content">
-				<span className="book-card__category">{book.category}</span>
-				<h3 className="book-card__title">{book.title}</h3>
-				<p className="book-card__author">{book.author}</p>
-			</div>
+			{!compact && (
+				<>
+					<div className="book-card__content">
+						<span className="book-card__category">{book.category}</span>
+						<h3 className="book-card__title">{book.title}</h3>
+						<p className="book-card__author">{book.author}</p>
+					</div>
 
-			<div className="book-card__year">{book.year}</div>
+					<div className="book-card__year">{book.year}</div>
+				</>
+			)}
 
 			{/* Placeholder overlay when book is lifted */}
 			{isLifted && <div className="book-card__placeholder" />}

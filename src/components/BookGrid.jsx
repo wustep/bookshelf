@@ -1,7 +1,7 @@
 import { BookCard } from "./BookCard"
 import "./BookGrid.css"
 
-export function BookGrid({ books, onBookClick, liftedBookId }) {
+export function BookGrid({ books, onBookClick, liftedBookId, compactView }) {
 	if (books.length === 0) {
 		return (
 			<div className="book-grid__empty">
@@ -16,7 +16,7 @@ export function BookGrid({ books, onBookClick, liftedBookId }) {
 	}
 
 	return (
-		<div className="book-grid">
+		<div className={`book-grid ${compactView ? "book-grid--compact" : ""}`}>
 			{books.map((book, index) => (
 				<BookCard
 					key={book.id}
@@ -24,6 +24,7 @@ export function BookGrid({ books, onBookClick, liftedBookId }) {
 					index={index}
 					onClick={handleBookClick}
 					isLifted={book.id === liftedBookId}
+					compact={compactView}
 				/>
 			))}
 		</div>

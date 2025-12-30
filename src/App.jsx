@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback } from "react"
+import { useState, useMemo, useCallback, useRef } from "react"
 import { useBooks, useCategories } from "./hooks/useBooks"
 import { Header } from "./components/Header"
 import { CategoryBadges } from "./components/CategoryBadges"
@@ -14,6 +14,8 @@ function App() {
 	const [selectedCategory, setSelectedCategory] = useState("")
 	const [selectedBook, setSelectedBook] = useState(null)
 	const [originPosition, setOriginPosition] = useState(null)
+	const [compactView, setCompactView] = useState(false)
+	const recentRandomIds = useRef([])
 
 	const filteredBooks = useMemo(() => {
 		let result = [...books]
@@ -58,8 +60,26 @@ function App() {
 
 	const handleRandomBook = useCallback(() => {
 		if (books.length === 0) return
-		const randomIndex = Math.floor(Math.random() * books.length)
-		const randomBook = books[randomIndex]
+
+		// Filter out recently selected books (unless we have no other choice)
+		let availableBooks = books.filter(
+			(book) => !recentRandomIds.current.includes(book.id)
+		)
+
+		// If all books were recently selected, reset and use all books
+		if (availableBooks.length === 0) {
+			availableBooks = books
+			recentRandomIds.current = []
+		}
+
+		const randomIndex = Math.floor(Math.random() * availableBooks.length)
+		const randomBook = availableBooks[randomIndex]
+
+		// Track this selection (keep last 3)
+		recentRandomIds.current = [
+			randomBook.id,
+			...recentRandomIds.current.slice(0, 2),
+		]
 
 		// Find the book card and scroll to it
 		const bookCard = document.querySelector(`[data-book-id="${randomBook.id}"]`)
@@ -115,11 +135,14 @@ function App() {
 							onCategoryChange={setSelectedCategory}
 							bookCount={books.length}
 							onRandomBook={handleRandomBook}
+							compactView={compactView}
+							onToggleCompact={() => setCompactView(!compactView)}
 						/>
 						<BookGrid
 							books={filteredBooks}
 							onBookClick={handleBookClick}
 							liftedBookId={selectedBook?.id}
+							compactView={compactView}
 						/>
 					</>
 				)}

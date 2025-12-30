@@ -38,3 +38,24 @@
 	font-size: 1.1rem;
 	margin: 0;
 }
+
+/* Compact view - tighter grid, more books visible, bottom aligned */
+.book-grid--compact {
+	grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+	gap: 1rem;
+	align-items: end;
+}
+
+@media (min-width: 768px) {
+	.book-grid--compact {
+		grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+		gap: 1.25rem;
+	}
+}
+
+@media (min-width: 1200px) {
+	.book-grid--compact {
+		grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+		gap: 1.5rem;
+	}
+}

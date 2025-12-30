@@ -209,3 +209,59 @@
   border-radius: 0 0 12px 12px;
 }
 
+/* Compact view - only show covers */
+.book-card--compact {
+  background: transparent;
+  border-radius: 0;
+}
+
+.book-card--compact .book-card__cover-wrapper {
+  border-radius: 0;
+  aspect-ratio: auto;
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.15),
+    0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.book-card--compact .book-card__cover {
+  width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+}
+
+.book-card--compact .book-card__cover-placeholder {
+  aspect-ratio: 2 / 3;
+}
+
+.book-card--compact:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: none;
+}
+
+.book-card--compact:hover .book-card__cover-wrapper {
+  box-shadow: 
+    0 12px 24px rgba(0, 0, 0, 0.2),
+    0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.book-card--compact .book-card__year {
+  display: none;
+}
+
+.book-card--compact .book-card__color-accent {
+  display: none;
+}
+
+.book-card--compact .book-card__placeholder {
+  border-radius: 0;
+}
+
+.book-card--compact .book-card__placeholder::before {
+  border-radius: 0;
+  aspect-ratio: 2 / 3;
+}
+
+.book-card--compact .book-card__placeholder::after {
+  display: none;
+}
+
