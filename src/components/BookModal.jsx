@@ -5,33 +5,50 @@ export function BookModal({ book, isOpen, onClose, originPosition }) {
 	const [animationPhase, setAnimationPhase] = useState("idle") // idle, lifting, opening, open, closing
 	const [imageError, setImageError] = useState(false)
 	const modalRef = useRef(null)
+	const isClosingRef = useRef(false)
+	const timersRef = useRef({ lift: null, open: null, close: null })
 
 	const handleClose = useCallback(() => {
-		if (animationPhase === "closing") return
-		setAnimationPhase("closing")
-		setTimeout(() => {
+		if (isClosingRef.current) return
+		isClosingRef.current = true
+		
+		// Clear any pending open timers
+		clearTimeout(timersRef.current.lift)
+		clearTimeout(timersRef.current.open)
+		
+		// Faster close if interrupting mid-animation
+		const isInterrupting = animationPhase === "lifting" || animationPhase === "opening"
+		const closeTime = isInterrupting ? 350 : 750
+		
+		setAnimationPhase(isInterrupting ? "closing-fast" : "closing")
+		timersRef.current.close = setTimeout(() => {
 			setAnimationPhase("idle")
+			isClosingRef.current = false
 			onClose()
-		}, 750) // Match the 0.7s CSS animation + buffer
+		}, closeTime)
 	}, [onClose, animationPhase])
 
 	useEffect(() => {
-		if (isOpen && animationPhase === "idle") {
+		if (isOpen && animationPhase === "idle" && !isClosingRef.current) {
 			setImageError(false) // Reset image error state
 			setAnimationPhase("lifting")
 			document.body.style.overflow = "hidden"
 
-			const liftTimer = setTimeout(() => {
-				setAnimationPhase("opening")
+			timersRef.current.lift = setTimeout(() => {
+				if (!isClosingRef.current) {
+					setAnimationPhase("opening")
+				}
 			}, 350)
 
-			const openTimer = setTimeout(() => {
-				setAnimationPhase("open")
+			timersRef.current.open = setTimeout(() => {
+				if (!isClosingRef.current) {
+					setAnimationPhase("open")
+				}
 			}, 900)
 
 			return () => {
-				clearTimeout(liftTimer)
-				clearTimeout(openTimer)
+				clearTimeout(timersRef.current.lift)
+				clearTimeout(timersRef.current.open)
 			}
 		}
 		return () => {

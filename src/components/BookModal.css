@@ -25,6 +25,12 @@
 	transition: background 0.5s ease 0.1s, backdrop-filter 0.5s ease 0.1s;
 }
 
+.book-modal--closing-fast {
+	background: rgba(0, 0, 0, 0);
+	backdrop-filter: blur(0px);
+	transition: background 0.25s ease, backdrop-filter 0.25s ease;
+}
+
 /* Book container - the main animated element */
 .book-modal__book {
 	position: relative;
@@ -97,6 +103,33 @@
 		opacity: 0;
 		filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
 	}
+}
+
+/* Fast closing - when interrupted mid-animation */
+.book-modal--closing-fast .book-modal__book {
+	animation: bookDropFast 0.3s ease-out forwards;
+}
+
+@keyframes bookDropFast {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		transform: translate(var(--origin-x), var(--origin-y))
+			scale(var(--origin-scale));
+		opacity: 0;
+		filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
+	}
+}
+
+.book-modal--closing-fast .book-modal__cover {
+	animation: none;
+	transform: rotateY(0deg);
+}
+
+.book-modal--closing-fast .book-modal__pages {
+	opacity: 0;
+	transition: opacity 0.1s ease;
 }
 
 /* Front cover */
