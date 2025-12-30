@@ -1,0 +1,53 @@
+.loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  gap: 1.5rem;
+}
+
+.loader__books {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.loader__book {
+  width: 20px;
+  height: 30px;
+  border-radius: 2px;
+  animation: bookPulse 1.2s ease-in-out infinite;
+}
+
+.loader__book--1 {
+  background: var(--accent-color);
+  animation-delay: 0s;
+}
+
+.loader__book--2 {
+  background: #E85D4C;
+  animation-delay: 0.2s;
+}
+
+.loader__book--3 {
+  background: #00B894;
+  animation-delay: 0.4s;
+}
+
+@keyframes bookPulse {
+  0%, 100% {
+    transform: scaleY(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scaleY(1.3);
+    opacity: 1;
+  }
+}
+
+.loader__text {
+  font-size: 0.9rem;
+  color: var(--text-tertiary);
+  margin: 0;
+}
+
