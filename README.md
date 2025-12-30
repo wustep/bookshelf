@@ -1,15 +1,8 @@
 # 📚 Bookshelf
 
-A beautiful, curated collection of books inspired by [designisaparty.com](https://www.designisaparty.com/design-books) and [christophlocher.com](https://www.christophlocher.com/notes/bookshelf).
+An interactive collection of books.
 
-## Features
-
-- ✨ Beautiful, responsive grid layout with animated cards
-- 📖 Interactive book opening animation
-- 🎨 Color-coded book cards with hover effects
-- 🏷️ Filter by category badges
-- 🌙 Automatic dark/light theme support
-- 📱 Mobile-friendly design
+See: https://wustep-bookshelf.vercel.app/ for a live demo.
 
 ## Getting Started
 
@@ -77,6 +70,11 @@ Edit `public/data/books.json` to add your books:
 - [Vite](https://vitejs.dev/) - Build tool
 - [React](https://react.dev/) - UI framework
 - CSS custom properties for theming
+
+## Inspiration
+- Elizabeth Lin's [designisaparty.com/design-books](https://www.designisaparty.com/design-books) 
+- Christoph Locher's [christophlocher.com/notes.bookshelf](https://www.christophlocher.com/notes/bookshelf)
+- Flo Guo's [floguo.com/books](https://www.floguo.com/books)
 
 ## License
 
