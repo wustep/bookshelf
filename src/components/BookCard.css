@@ -63,6 +63,7 @@
   text-align: center;
   color: white;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  user-select: none;
 }
 
 .book-card__cover-title {
@@ -154,11 +155,17 @@
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
   font-variant-numeric: tabular-nums;
+  user-select: none;
 }
 
 /* Lifted state - shows placeholder where book was */
 .book-card--lifted {
   pointer-events: none;
+  /* Maintain the hovered size so placeholder matches */
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.15),
+    0 0 0 1px var(--book-color);
 }
 
 .book-card--lifted > *:not(.book-card__placeholder) {

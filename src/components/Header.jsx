@@ -12,11 +12,6 @@ export function Header() {
           a curated collection of design books
         </p>
       </div>
-      <div className="header__decoration">
-        <div className="header__orb header__orb--1" />
-        <div className="header__orb header__orb--2" />
-        <div className="header__orb header__orb--3" />
-      </div>
     </header>
   );
 }

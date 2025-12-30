@@ -73,8 +73,9 @@
 }
 
 /* Phase 3: Closing - reverse the animation */
+/* First cover closes (0-40%), then book shrinks and returns (40-100%) */
 .book-modal--closing .book-modal__book {
-	animation: bookDrop 0.5s cubic-bezier(0.32, 0, 0.67, 0) forwards;
+	animation: bookDrop 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 @keyframes bookDrop {
@@ -83,15 +84,18 @@
 		opacity: 1;
 		filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.4));
 	}
-	60% {
+	/* Hold position while cover closes */
+	40% {
+		transform: translate(0, 0) scale(1);
 		opacity: 1;
-		filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.25));
+		filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.35));
 	}
+	/* Then smoothly return to origin */
 	100% {
 		transform: translate(var(--origin-x), var(--origin-y))
 			scale(var(--origin-scale));
-		opacity: 0.8;
-		filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.15));
+		opacity: 0;
+		filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
 	}
 }
 
@@ -120,7 +124,7 @@
 }
 
 .book-modal--closing .book-modal__cover {
-	animation: coverClose 0.35s ease forwards;
+	animation: coverClose 0.28s ease-out forwards;
 }
 
 @keyframes coverOpen {
@@ -146,25 +150,23 @@
 	position: absolute;
 	inset: 0;
 	backface-visibility: hidden;
-	overflow: hidden;
 }
 
 .book-modal__cover-front {
 	border-radius: 12px; /* All 4 corners rounded when closed */
+	/* Subtle gradient that works at all sizes */
+	background: linear-gradient(
+		160deg,
+		var(--book-color) 0%,
+		var(--book-color) 40%,
+		color-mix(in srgb, var(--book-color) 70%, black) 100%
+	);
+	box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2),
+		inset -1px 0 0 rgba(255, 255, 255, 0.1);
 }
 
 .book-modal__cover-back {
 	border-radius: 12px 0 0 12px;
-}
-
-.book-modal__cover-front {
-	background: linear-gradient(
-		135deg,
-		var(--book-color) 0%,
-		color-mix(in srgb, var(--book-color) 60%, black) 100%
-	);
-	box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2),
-		inset -1px 0 0 rgba(255, 255, 255, 0.1);
 }
 
 .book-modal__cover-front img {

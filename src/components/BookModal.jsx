@@ -12,7 +12,7 @@ export function BookModal({ book, isOpen, onClose, originPosition }) {
 		setTimeout(() => {
 			setAnimationPhase("idle")
 			onClose()
-		}, 600)
+		}, 750) // Match the 0.7s CSS animation + buffer
 	}, [onClose, animationPhase])
 
 	useEffect(() => {
@@ -58,33 +58,32 @@ export function BookModal({ book, isOpen, onClose, originPosition }) {
 	if (!isOpen && animationPhase === "idle") return null
 
 	// Calculate origin offset for the lift animation
-	// The card center should map to where the COVER center is when scaled
 	const centerX = typeof window !== "undefined" ? window.innerWidth / 2 : 0
 	const centerY = typeof window !== "undefined" ? window.innerHeight / 2 : 0
 	
-	// Modal dimensions
+	// Modal dimensions (80vh max 600px height)
 	const modalWidth = Math.min(700, typeof window !== "undefined" ? window.innerWidth - 64 : 700)
+	const modalHeight = Math.min(600, typeof window !== "undefined" ? window.innerHeight * 0.8 : 600)
 	const coverWidthAtScale1 = modalWidth * 0.5 // Cover is 50% of modal
 	
 	// Card dimensions
 	const cardWidth = originPosition?.width ?? 200
+	const cardCoverHeight = originPosition?.coverHeight ?? 300
 	const cardCenterX = originPosition?.x ?? centerX
 	const cardCenterY = originPosition?.y ?? centerY
 	
 	// Scale so the cover matches the card width
 	const originScale = originPosition ? Math.min(cardWidth / coverWidthAtScale1, 0.85) : 0.4
 	
-	// At the origin scale, calculate where the cover center will be
-	// Cover is at left:0 to left:50% of modal, so its center is at 25% of modal
-	// Modal center is at centerX, so cover center at scale=1 is at: centerX - modalWidth*0.25
-	// At origin scale, cover center is at: centerX - (modalWidth * originScale * 0.25)
-	// We want this to equal cardCenterX
-	// So offset = cardCenterX - (centerX - modalWidth * 0.25) for scale=1
-	// But we're scaling, so: offset = cardCenterX - centerX + (modalWidth * 0.25 * (1 - originScale))
+	// The cover's center is at 25% of modal width from the left edge
+	const coverCenterOffset = modalWidth * 0.25 * originScale
+	const offsetX = cardCenterX - centerX + coverCenterOffset
 	
-	// Simpler approach: just offset from center to center, accept slight misalignment
-	const offsetX = cardCenterX - centerX
-	const offsetY = cardCenterY - centerY
+	// The modal's cover is taller than the card's cover when scaled to match width
+	// Adjust Y to account for this height difference
+	const modalCoverHeightAtScale = modalHeight * originScale
+	const heightDiff = modalCoverHeightAtScale - cardCoverHeight
+	const offsetY = cardCenterY - centerY + (heightDiff / 2)
 
 	// Check if book has a valid cover
 	const hasCover = book.cover && !imageError

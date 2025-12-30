@@ -13,7 +13,7 @@ export function BookCard({ book, index, onClick, isLifted }) {
 			const coverRect = coverWrapper?.getBoundingClientRect() || rect
 			onClick(book, {
 				x: rect.left + rect.width / 2,
-				y: rect.top + rect.height / 2,
+				y: coverRect.top + coverRect.height / 2, // Use cover's center Y, not card's
 				width: rect.width,
 				height: rect.height,
 				coverWidth: coverRect.width,
