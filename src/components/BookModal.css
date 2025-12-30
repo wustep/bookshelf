@@ -10,6 +10,26 @@
 	background: rgba(0, 0, 0, 0);
 	backdrop-filter: blur(0px);
 	transition: background 0.4s ease, backdrop-filter 0.4s ease;
+	overflow: auto;
+	overscroll-behavior: contain;
+	scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+.book-modal::-webkit-scrollbar {
+	width: 10px;
+}
+
+.book-modal::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+.book-modal::-webkit-scrollbar-thumb {
+	background: rgba(255, 255, 255, 0.3);
+	border-radius: 5px;
+}
+
+.book-modal::-webkit-scrollbar-thumb:hover {
+	background: rgba(255, 255, 255, 0.5);
 }
 
 .book-modal--lifting,

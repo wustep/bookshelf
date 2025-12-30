@@ -1,21 +1,34 @@
 import { useEffect, useRef, useState, useCallback } from "react"
 import "./BookModal.css"
 
-export function BookModal({ book, isOpen, onClose, originPosition, onNavigate, hasPrev, hasNext }) {
+export function BookModal({
+	book,
+	isOpen,
+	onClose,
+	originPosition,
+	onNavigate,
+	hasPrev,
+	hasNext,
+}) {
 	const [animationPhase, setAnimationPhase] = useState("idle") // idle, lifting, opening, open, closing
 	const [imageError, setImageError] = useState(false)
 	const [isTransitioning, setIsTransitioning] = useState(false)
 	const [displayedBook, setDisplayedBook] = useState(book)
 	const modalRef = useRef(null)
 	const isClosingRef = useRef(false)
-	const timersRef = useRef({ lift: null, open: null, close: null, transition: null })
+	const timersRef = useRef({
+		lift: null,
+		open: null,
+		close: null,
+		transition: null,
+	})
 
 	// Handle book change transition - fade out, swap, fade in
 	useEffect(() => {
 		if (book?.id !== displayedBook?.id && animationPhase === "open") {
 			// Start fade out
 			setIsTransitioning(true)
-			
+
 			// After fade out, swap the book and fade in
 			timersRef.current.transition = setTimeout(() => {
 				setDisplayedBook(book)
@@ -25,7 +38,7 @@ export function BookModal({ book, isOpen, onClose, originPosition, onNavigate, h
 					setIsTransitioning(false)
 				}, 50)
 			}, 150) // Fade out duration
-			
+
 			return () => clearTimeout(timersRef.current.transition)
 		} else if (!displayedBook && book) {
 			// Initial book set
@@ -50,16 +63,15 @@ export function BookModal({ book, isOpen, onClose, originPosition, onNavigate, h
 		timersRef.current.close = setTimeout(() => {
 			setAnimationPhase("idle")
 			isClosingRef.current = false
-			document.body.style.overflow = "" // Restore scrolling
 			onClose()
 		}, closeTime)
 	}, [onClose, animationPhase])
 
+	// Handle opening the modal
 	useEffect(() => {
 		if (isOpen && animationPhase === "idle" && !isClosingRef.current) {
 			setImageError(false) // Reset image error state
 			setAnimationPhase("lifting")
-			document.body.style.overflow = "hidden"
 
 			timersRef.current.lift = setTimeout(() => {
 				if (!isClosingRef.current) {
@@ -72,26 +84,56 @@ export function BookModal({ book, isOpen, onClose, originPosition, onNavigate, h
 					setAnimationPhase("open")
 				}
 			}, 900)
-
-			return () => {
-				clearTimeout(timersRef.current.lift)
-				clearTimeout(timersRef.current.open)
-			}
 		}
+
 		return () => {
-			document.body.style.overflow = ""
+			clearTimeout(timersRef.current.lift)
+			clearTimeout(timersRef.current.open)
 		}
 	}, [isOpen])
 
+	// Lock body scroll when modal is visible (with scrollbar compensation)
+	const isVisible = isOpen || animationPhase !== "idle"
+	useEffect(() => {
+		if (isVisible) {
+			// Calculate scrollbar width BEFORE hiding it
+			const scrollbarWidth =
+				window.innerWidth - document.documentElement.clientWidth
+			// Add padding to prevent layout shift
+			document.body.style.paddingRight = `${scrollbarWidth}px`
+			document.body.style.overflow = "hidden"
+		} else {
+			document.body.style.overflow = ""
+			document.body.style.paddingRight = ""
+		}
+		return () => {
+			document.body.style.overflow = ""
+			document.body.style.paddingRight = ""
+		}
+	}, [isVisible])
+
 	useEffect(() => {
 		const handleKeydown = (e) => {
-			if (!isOpen || animationPhase === "closing" || animationPhase === "closing-fast") return
-			
+			if (
+				!isOpen ||
+				animationPhase === "closing" ||
+				animationPhase === "closing-fast"
+			)
+				return
+
 			if (e.key === "Escape") {
 				handleClose()
-			} else if (e.key === "ArrowLeft" && hasPrev && animationPhase === "open") {
+			} else if (
+				e.key === "ArrowLeft" &&
+				hasPrev &&
+				animationPhase === "open"
+			) {
 				onNavigate(-1)
-			} else if (e.key === "ArrowRight" && hasNext && animationPhase === "open") {
+			} else if (
+				e.key === "ArrowRight" &&
+				hasNext &&
+				animationPhase === "open"
+			) {
 				onNavigate(1)
 			}
 		}
@@ -150,7 +192,9 @@ export function BookModal({ book, isOpen, onClose, originPosition, onNavigate, h
 	return (
 		<div
 			ref={modalRef}
-			className={`book-modal book-modal--${animationPhase}${isTransitioning ? " book-modal--transitioning" : ""}`}
+			className={`book-modal book-modal--${animationPhase}${
+				isTransitioning ? " book-modal--transitioning" : ""
+			}`}
 			onClick={handleBackdropClick}
 			role="dialog"
 			aria-modal="true"
@@ -173,8 +217,12 @@ export function BookModal({ book, isOpen, onClose, originPosition, onNavigate, h
 							/>
 						) : (
 							<div className="book-modal__cover-placeholder">
-								<span className="book-modal__cover-title">{currentBook.title}</span>
-								<span className="book-modal__cover-author">{currentBook.author}</span>
+								<span className="book-modal__cover-title">
+									{currentBook.title}
+								</span>
+								<span className="book-modal__cover-author">
+									{currentBook.author}
+								</span>
 							</div>
 						)}
 					</div>
@@ -213,7 +261,9 @@ export function BookModal({ book, isOpen, onClose, originPosition, onNavigate, h
 
 					<div className="book-modal__content">
 						<header className="book-modal__header">
-							<span className="book-modal__category">{currentBook.category}</span>
+							<span className="book-modal__category">
+								{currentBook.category}
+							</span>
 							<h2 id="modal-title" className="book-modal__title">
 								{currentBook.title}
 							</h2>
