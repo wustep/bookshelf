@@ -144,12 +144,11 @@ function App() {
 	return (
 		<div className="app">
 			<div className="container">
-				<Header />
-
 				{loading ? (
 					<Loader />
 				) : (
 					<>
+						<Header />
 						<CategoryBadges
 							categories={categories}
 							selectedCategory={selectedCategory}

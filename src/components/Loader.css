@@ -3,7 +3,7 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	padding: 12rem 2rem 6rem;
+	min-height: 100vh;
 	gap: 2rem;
 	animation: loaderFadeIn 0.3s ease-out;
 }
@@ -64,7 +64,8 @@
 }
 
 @keyframes bookWave {
-	0%, 100% {
+	0%,
+	100% {
 		transform: scaleY(1);
 	}
 	50% {
