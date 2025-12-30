@@ -7,7 +7,7 @@
 			"year": 2024,
 			"category": "Design",
 			"color": "#E85D4C",
-			"cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1442866854i/6095883.jpg",
+			"cover": "/data/covers/design-as-art.jpg",
 			"notes": "Munari's notes on the role of design in everyday life. A classic that challenges you to see design everywhere.",
 			"summary": "Bruno Munari explores the relationship between art and design, arguing that design is an integral part of everyday life. He challenges traditional distinctions between fine art and applied art, showing how good design enhances our daily experiences.",
 			"quotes": [
@@ -25,7 +25,7 @@
 			"year": 2024,
 			"category": "Design",
 			"color": "#2D3436",
-			"cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1388211242i/69736.jpg",
+			"cover": "/data/covers/thinking-with-type.jpg",
 			"notes": "My most recommended book on typography for beginners. Essential reading for anyone working with text.",
 			"summary": "A comprehensive guide to typography that covers the history of type, the anatomy of letterforms, and practical techniques for working with text in design.",
 			"quotes": [
@@ -42,7 +42,7 @@
 			"year": 2024,
 			"category": "Design",
 			"color": "#6C5CE7",
-			"cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1442460745i/840.jpg",
+			"cover": "/data/covers/design-of-everyday-things.jpg",
 			"notes": "A foundational text on human-centered design. Everyone recommends it for a reason.",
 			"summary": "Don Norman introduces the principles of user-centered design, explaining why some products satisfy customers while others frustrate them. He argues that good design should be intuitive and invisible.",
 			"quotes": [
@@ -60,7 +60,7 @@
 			"year": 2024,
 			"category": "Design",
 			"color": "#00B894",
-			"cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1388269498i/111113.jpg",
+			"cover": "/data/covers/interaction-of-color.jpg",
 			"notes": "Color is contextual. This book changed how I think about color relationships.",
 			"summary": "Josef Albers presents his revolutionary approach to color theory through practical exercises and examples. He demonstrates that color perception is relative and influenced by surrounding colors.",
 			"quotes": [
@@ -77,7 +77,7 @@
 			"year": 2023,
 			"category": "Architecture",
 			"color": "#FDCB6E",
-			"cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1348979263i/79766.jpg",
+			"cover": "/data/covers/pattern-language.jpg",
 			"notes": "Perfect for reading random chapters at a time! A peek at various patterns in urban planning & architecture.",
 			"goodreadsLink": "https://www.goodreads.com/book/show/79766.A_Pattern_Language",
 			"amazonLink": "https://www.amazon.com/Pattern-Language-Buildings-Construction-Environmental/dp/0195019199"
@@ -89,7 +89,7 @@
 			"year": 2023,
 			"category": "Design",
 			"color": "#E17055",
-			"cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1328408101i/102920.jpg",
+			"cover": "/data/covers/understanding-comics.jpg",
 			"notes": "I recommend this to all designers interested in improving their visual storytelling skills.",
 			"summary": "Scott McCloud explores the medium of comics, breaking down how visual storytelling works. He examines the vocabulary of comics, including panels, gutters, and the relationship between words and images.",
 			"quotes": [
@@ -106,7 +106,7 @@
 			"year": 2023,
 			"category": "Design",
 			"color": "#0984E3",
-			"cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1348967821i/350962.jpg",
+			"cover": "",
 			"notes": "The go-to book about traditional grids. Essential for understanding systematic design.",
 			"goodreadsLink": "https://www.goodreads.com/book/show/350962.Grid_Systems_in_Graphic_Design",
 			"amazonLink": "https://www.amazon.com/Grid-Systems-Graphic-Design-Communication/dp/3721201450"
@@ -118,7 +118,7 @@
 			"year": 2023,
 			"category": "Architecture",
 			"color": "#636E72",
-			"cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1348985498i/38310.jpg",
+			"cover": "/data/covers/how-buildings-learn.jpg",
 			"notes": "What happens after buildings are built? A fascinating look at how structures adapt over time.",
 			"goodreadsLink": "https://www.goodreads.com/book/show/38310.How_Buildings_Learn",
 			"amazonLink": "https://www.amazon.com/How-Buildings-Learn-Happens-Theyre/dp/0140139966"
@@ -130,7 +130,7 @@
 			"year": 2022,
 			"category": "Design",
 			"color": "#A29BFE",
-			"cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1388533498i/17756296.jpg",
+			"cover": "/data/covers/speculative-everything.jpg",
 			"notes": "Conceptual design used to explore potential futures. Mind-expanding.",
 			"summary": "Dunne and Raby propose design as a means of speculating about possible futures, encouraging designers to envision alternative scenarios rather than simply solving immediate problems.",
 			"quotes": [
@@ -146,7 +146,7 @@
 			"year": 2022,
 			"category": "Technology",
 			"color": "#74B9FF",
-			"cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1390692845i/17745.jpg",
+			"cover": "/data/covers/visual-explanations.jpg",
 			"notes": "Tufte's thoughts on presenting information visually. Trust that the user can process all the information!",
 			"goodreadsLink": "https://www.goodreads.com/book/show/17745.Visual_Explanations",
 			"amazonLink": "https://www.amazon.com/Visual-Explanations-Quantities-Evidence-Narrative/dp/0961392126"
@@ -158,7 +158,7 @@
 			"year": 2022,
 			"category": "Design",
 			"color": "#FF7675",
-			"cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1494279732i/34523897.jpg",
+			"cover": "/data/covers/design-is-storytelling.jpg",
 			"notes": "My #1 rec for anyone trying to understand how to think like a designer.",
 			"goodreadsLink": "https://www.goodreads.com/book/show/34523897-design-is-storytelling",
 			"amazonLink": "https://www.amazon.com/Design-Storytelling-Ellen-Lupton/dp/194230319X"
@@ -170,7 +170,7 @@
 			"year": 2022,
 			"category": "Philosophy",
 			"color": "#7F8C8D",
-			"cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1388283921i/13269.jpg",
+			"cover": "/data/covers/poetics-of-space.jpg",
 			"notes": "A philosophical exploration of intimate spaces. Dreamlike and profound.",
 			"goodreadsLink": "https://www.goodreads.com/book/show/13269.The_Poetics_of_Space",
 			"amazonLink": "https://www.amazon.com/Poetics-Space-Gaston-Bachelard/dp/0143107526"
@@ -182,7 +182,7 @@
 			"year": 2021,
 			"category": "Society",
 			"color": "#2D3436",
-			"cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1603744119i/55361178.jpg",
+			"cover": "",
 			"notes": "How graphic design and capitalism are intertwined. Critical and eye-opening.",
 			"goodreadsLink": "https://www.goodreads.com/book/show/55361178-caps-lock",
 			"amazonLink": "https://www.amazon.com/Caps-Lock-Capitalism-Graphic-Design/dp/9492095874"
@@ -194,7 +194,7 @@
 			"year": 2021,
 			"category": "Society",
 			"color": "#00CEC9",
-			"cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1527259148i/39644200.jpg",
+			"cover": "/data/covers/mismatch.jpg",
 			"notes": "How inclusion shapes design. Essential reading on accessibility.",
 			"goodreadsLink": "https://www.goodreads.com/book/show/39644200-mismatch",
 			"amazonLink": "https://www.amazon.com/Mismatch-Inclusion-Simplicity-Technology-Business/dp/0262038889"
@@ -206,7 +206,7 @@
 			"year": 2021,
 			"category": "Technology",
 			"color": "#B2BEC3",
-			"cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1555348998i/42527493.jpg",
+			"cover": "/data/covers/race-after-technology.jpg",
 			"notes": "How does technology continue to reinforce racism? Critical tech studies.",
 			"goodreadsLink": "https://www.goodreads.com/book/show/42527493-race-after-technology",
 			"amazonLink": "https://www.amazon.com/Race-After-Technology-Abolitionist-Tools/dp/1509526404"
@@ -218,7 +218,7 @@
 			"year": 2020,
 			"category": "Technology",
 			"color": "#FAB1A0",
-			"cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1456530722i/28465942.jpg",
+			"cover": "/data/covers/dear-data.jpg",
 			"notes": "A year of hand-drawn data visualizations exchanged as postcards. Beautiful and inspiring.",
 			"goodreadsLink": "https://www.goodreads.com/book/show/28465942-dear-data",
 			"amazonLink": "https://www.amazon.com/Dear-Data-Giorgia-Lupi/dp/1616895322"
