@@ -95,46 +95,12 @@
 	}
 }
 
-/* Spine - page binding edge, off-white when book is open */
-.book-modal__spine {
-	position: absolute;
-	left: 0;
-	top: 0;
-	bottom: 0;
-	width: 40px;
-	background: linear-gradient(90deg, #e5e1db 0%, #f0ece6 50%, #e8e4de 100%);
-	border-radius: 0;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	box-shadow: inset -1px 0 3px rgba(0, 0, 0, 0.08);
-	opacity: 0;
-	transform: translateX(-10px);
-	transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.book-modal--opening .book-modal__spine,
-.book-modal--open .book-modal__spine {
-	opacity: 1;
-	transform: translateX(0);
-}
-
-.book-modal--closing .book-modal__spine {
-	opacity: 0;
-	transform: translateX(-10px);
-	transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-.book-modal__spine-title {
-	display: none; /* Hide title on page binding */
-}
-
 /* Front cover */
 .book-modal__cover {
 	position: absolute;
-	left: 40px;
+	left: 0;
 	top: 0;
-	width: calc(50% - 20px);
+	width: 50%;
 	height: 100%;
 	transform-style: preserve-3d;
 	transform-origin: left center;
@@ -142,7 +108,6 @@
 }
 
 .book-modal--lifting .book-modal__cover {
-	/* Cover stays closed during lift */
 	transform: rotateY(0deg);
 }
 
@@ -242,7 +207,7 @@
 /* Pages */
 .book-modal__pages {
 	position: absolute;
-	left: 40px;
+	left: 0;
 	top: 0;
 	right: 0;
 	height: 100%;
@@ -483,11 +448,6 @@
 
 /* Dark mode adjustments for pages */
 @media (prefers-color-scheme: dark) {
-	.book-modal__spine {
-		background: linear-gradient(90deg, #1a1a1c 0%, #222224 50%, #1e1e20 100%);
-		box-shadow: inset -1px 0 3px rgba(0, 0, 0, 0.2);
-	}
-
 	.book-modal__pages {
 		background: linear-gradient(
 			to right,
@@ -560,21 +520,8 @@
 		max-height: 85vh;
 	}
 
-	.book-modal__spine {
-		width: 24px;
-	}
-
-	.book-modal__spine-title {
-		font-size: 0.7rem;
-	}
-
 	.book-modal__cover {
-		left: 24px;
-		width: calc(45% - 12px);
-	}
-
-	.book-modal__pages {
-		left: 24px;
+		width: 45%;
 	}
 
 	.book-modal__content {
