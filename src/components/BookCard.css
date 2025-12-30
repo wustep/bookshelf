@@ -26,8 +26,8 @@
 .book-card:hover {
   transform: translateY(-8px) scale(1.02);
   box-shadow: 
-    0 20px 40px rgba(0, 0, 0, 0.15),
-    0 0 0 1px var(--book-color);
+    0 24px 48px rgba(0, 0, 0, 0.15),
+    0 12px 24px rgba(0, 0, 0, 0.1);
 }
 
 .book-card:focus-visible {
@@ -46,11 +46,6 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.4s ease;
-}
-
-.book-card:hover .book-card__cover {
-  transform: scale(1.05);
 }
 
 .book-card__cover-placeholder {
@@ -164,8 +159,8 @@
   /* Maintain the hovered size so placeholder matches */
   transform: translateY(-8px) scale(1.02);
   box-shadow: 
-    0 20px 40px rgba(0, 0, 0, 0.15),
-    0 0 0 1px var(--book-color);
+    0 24px 48px rgba(0, 0, 0, 0.15),
+    0 12px 24px rgba(0, 0, 0, 0.1);
 }
 
 .book-card--lifted > *:not(.book-card__placeholder) {
@@ -213,35 +208,45 @@
 .book-card--compact {
   background: transparent;
   border-radius: 0;
+  border: none;
+  outline: none;
 }
 
 .book-card--compact .book-card__cover-wrapper {
   border-radius: 0;
+  border: none;
   aspect-ratio: auto;
+  /* Book shadow */
   box-shadow: 
-    0 4px 12px rgba(0, 0, 0, 0.15),
-    0 2px 4px rgba(0, 0, 0, 0.1);
+    0 8px 16px rgba(0, 0, 0, 0.2),
+    0 4px 8px rgba(0, 0, 0, 0.12);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .book-card--compact .book-card__cover {
   width: 100%;
   height: auto;
   aspect-ratio: auto;
+  display: block;
+  border: none;
+  outline: none;
 }
 
 .book-card--compact .book-card__cover-placeholder {
   aspect-ratio: 2 / 3;
 }
 
-.book-card--compact:hover {
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: none;
+.book-card--compact:hover,
+.book-card--compact:focus-visible {
+  transform: translateY(-5px) scale(1.02);
+  outline: none;
 }
 
-.book-card--compact:hover .book-card__cover-wrapper {
+.book-card--compact:hover .book-card__cover-wrapper,
+.book-card--compact:focus-visible .book-card__cover-wrapper {
   box-shadow: 
-    0 12px 24px rgba(0, 0, 0, 0.2),
-    0 4px 8px rgba(0, 0, 0, 0.15);
+    0 16px 32px rgba(0, 0, 0, 0.18),
+    0 6px 12px rgba(0, 0, 0, 0.12);
 }
 
 .book-card--compact .book-card__year {
@@ -254,6 +259,9 @@
 
 .book-card--compact .book-card__placeholder {
   border-radius: 0;
+  box-shadow: 
+    4px 6px 12px rgba(0, 0, 0, 0.2),
+    2px 3px 6px rgba(0, 0, 0, 0.12);
 }
 
 .book-card--compact .book-card__placeholder::before {
