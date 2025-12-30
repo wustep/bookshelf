@@ -137,23 +137,16 @@ export function BookModal({
 		}
 	}, [isOpen])
 
-	// Lock body scroll when modal is visible (with scrollbar compensation)
+	// Lock body scroll when modal is visible
 	const isVisible = isOpen || animationPhase !== "idle"
 	useEffect(() => {
 		if (isVisible) {
-			// Calculate scrollbar width BEFORE hiding it
-			const scrollbarWidth =
-				window.innerWidth - document.documentElement.clientWidth
-			// Add padding to prevent layout shift
-			document.body.style.paddingRight = `${scrollbarWidth}px`
 			document.body.style.overflow = "hidden"
 		} else {
 			document.body.style.overflow = ""
-			document.body.style.paddingRight = ""
 		}
 		return () => {
 			document.body.style.overflow = ""
-			document.body.style.paddingRight = ""
 		}
 	}, [isVisible])
 
