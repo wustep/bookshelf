@@ -248,15 +248,29 @@ export function BookModal({ book, isOpen, onClose, originPosition, onNavigate, h
 							</section>
 						)}
 
-						{currentBook.link && (
-							<a
-								href={currentBook.link}
-								target="_blank"
-								rel="noopener noreferrer"
-								className="book-modal__link"
-							>
-								View on Goodreads →
-							</a>
+						{(currentBook.goodreadsLink || currentBook.amazonLink) && (
+							<div className="book-modal__links">
+								{currentBook.goodreadsLink && (
+									<a
+										href={currentBook.goodreadsLink}
+										target="_blank"
+										rel="noopener noreferrer"
+										className="book-modal__link"
+									>
+										View on Goodreads →
+									</a>
+								)}
+								{currentBook.amazonLink && (
+									<a
+										href={currentBook.amazonLink}
+										target="_blank"
+										rel="noopener noreferrer"
+										className="book-modal__link"
+									>
+										View on Amazon →
+									</a>
+								)}
+							</div>
 						)}
 					</div>
 				</div>

@@ -494,15 +494,21 @@
 }
 
 /* Link */
+.book-modal__links {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	margin-top: 1.5rem;
+}
+
 .book-modal__link {
 	display: inline-flex;
 	align-items: center;
 	gap: 0.25rem;
 	font-size: 0.9rem;
-	color: var(--book-color);
+	color: var(--accent-color);
 	text-decoration: none;
 	font-weight: 500;
-	margin-top: 1rem;
 	transition: opacity 0.2s;
 }
 

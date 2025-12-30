@@ -15,7 +15,8 @@
 				"Design is not just what it looks like and feels like. Design is how it works.",
 				"Complicating is easy, simplifying is hard."
 			],
-			"link": "https://www.goodreads.com/book/show/6095883-design-as-art"
+			"goodreadsLink": "https://www.goodreads.com/book/show/6095883-design-as-art",
+			"amazonLink": "https://www.amazon.com/Design-Art-Bruno-Munari/dp/0141035811"
 		},
 		{
 			"id": "2",
@@ -31,7 +32,8 @@
 				"Typography is what language looks like.",
 				"Typefaces are not inherently legible. Rather, it is the reader's familiarity with faces that accounts for their legibility."
 			],
-			"link": "https://www.goodreads.com/book/show/69736.Thinking_with_Type"
+			"goodreadsLink": "https://www.goodreads.com/book/show/69736.Thinking_with_Type",
+			"amazonLink": "https://www.amazon.com/Thinking-Type-2nd-revised-expanded/dp/1568989695"
 		},
 		{
 			"id": "3",
@@ -48,7 +50,8 @@
 				"The same technology that simplifies life by providing more functions in each device also complicates life by making the device harder to learn.",
 				"Good design is actually a lot harder to notice than poor design, in part because good designs fit our needs so well that the design is invisible."
 			],
-			"link": "https://www.goodreads.com/book/show/840.The_Design_of_Everyday_Things"
+			"goodreadsLink": "https://www.goodreads.com/book/show/840.The_Design_of_Everyday_Things",
+			"amazonLink": "https://www.amazon.com/Design-Everyday-Things-Revised-Expanded/dp/0465050654"
 		},
 		{
 			"id": "4",
@@ -64,7 +67,8 @@
 				"In visual perception a color is almost never seen as it really is.",
 				"Colors present themselves in continuous flux, constantly related to changing neighbors and changing conditions."
 			],
-			"link": "https://www.goodreads.com/book/show/111113.Interaction_of_Color"
+			"goodreadsLink": "https://www.goodreads.com/book/show/111113.Interaction_of_Color",
+			"amazonLink": "https://www.amazon.com/Interaction-Color-50th-Anniversary/dp/0300179359"
 		},
 		{
 			"id": "5",
@@ -75,7 +79,8 @@
 			"color": "#FDCB6E",
 			"cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1348979263i/79766.jpg",
 			"notes": "Perfect for reading random chapters at a time! A peek at various patterns in urban planning & architecture.",
-			"link": "https://www.goodreads.com/book/show/79766.A_Pattern_Language"
+			"goodreadsLink": "https://www.goodreads.com/book/show/79766.A_Pattern_Language",
+			"amazonLink": "https://www.amazon.com/Pattern-Language-Buildings-Construction-Environmental/dp/0195019199"
 		},
 		{
 			"id": "6",
@@ -91,7 +96,8 @@
 				"The art form of comics is many centuries old, but it's perceived as a recent invention and suffers the curse of all new media.",
 				"Comics is a language. And like any language, it can be used for good or evil."
 			],
-			"link": "https://www.goodreads.com/book/show/102920.Understanding_Comics"
+			"goodreadsLink": "https://www.goodreads.com/book/show/102920.Understanding_Comics",
+			"amazonLink": "https://www.amazon.com/Understanding-Comics-Invisible-Scott-McCloud/dp/006097625X"
 		},
 		{
 			"id": "7",
@@ -102,7 +108,8 @@
 			"color": "#0984E3",
 			"cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1348967821i/350962.jpg",
 			"notes": "The go-to book about traditional grids. Essential for understanding systematic design.",
-			"link": "https://www.goodreads.com/book/show/350962.Grid_Systems_in_Graphic_Design"
+			"goodreadsLink": "https://www.goodreads.com/book/show/350962.Grid_Systems_in_Graphic_Design",
+			"amazonLink": "https://www.amazon.com/Grid-Systems-Graphic-Design-Communication/dp/3721201450"
 		},
 		{
 			"id": "8",
@@ -113,7 +120,8 @@
 			"color": "#636E72",
 			"cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1348985498i/38310.jpg",
 			"notes": "What happens after buildings are built? A fascinating look at how structures adapt over time.",
-			"link": "https://www.goodreads.com/book/show/38310.How_Buildings_Learn"
+			"goodreadsLink": "https://www.goodreads.com/book/show/38310.How_Buildings_Learn",
+			"amazonLink": "https://www.amazon.com/How-Buildings-Learn-Happens-Theyre/dp/0140139966"
 		},
 		{
 			"id": "9",
@@ -128,7 +136,8 @@
 			"quotes": [
 				"Design speculations can act as a catalyst for collectively redefining our relationship to reality."
 			],
-			"link": "https://www.goodreads.com/book/show/17756296-speculative-everything"
+			"goodreadsLink": "https://www.goodreads.com/book/show/17756296-speculative-everything",
+			"amazonLink": "https://www.amazon.com/Speculative-Everything-Design-Fiction-Dreaming/dp/0262019841"
 		},
 		{
 			"id": "10",
@@ -139,7 +148,8 @@
 			"color": "#74B9FF",
 			"cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1390692845i/17745.jpg",
 			"notes": "Tufte's thoughts on presenting information visually. Trust that the user can process all the information!",
-			"link": "https://www.goodreads.com/book/show/17745.Visual_Explanations"
+			"goodreadsLink": "https://www.goodreads.com/book/show/17745.Visual_Explanations",
+			"amazonLink": "https://www.amazon.com/Visual-Explanations-Quantities-Evidence-Narrative/dp/0961392126"
 		},
 		{
 			"id": "11",
@@ -150,7 +160,8 @@
 			"color": "#FF7675",
 			"cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1494279732i/34523897.jpg",
 			"notes": "My #1 rec for anyone trying to understand how to think like a designer.",
-			"link": "https://www.goodreads.com/book/show/34523897-design-is-storytelling"
+			"goodreadsLink": "https://www.goodreads.com/book/show/34523897-design-is-storytelling",
+			"amazonLink": "https://www.amazon.com/Design-Storytelling-Ellen-Lupton/dp/194230319X"
 		},
 		{
 			"id": "12",
@@ -161,7 +172,8 @@
 			"color": "#DFE6E9",
 			"cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1388283921i/13269.jpg",
 			"notes": "A philosophical exploration of intimate spaces. Dreamlike and profound.",
-			"link": "https://www.goodreads.com/book/show/13269.The_Poetics_of_Space"
+			"goodreadsLink": "https://www.goodreads.com/book/show/13269.The_Poetics_of_Space",
+			"amazonLink": "https://www.amazon.com/Poetics-Space-Gaston-Bachelard/dp/0143107526"
 		},
 		{
 			"id": "13",
@@ -172,7 +184,8 @@
 			"color": "#2D3436",
 			"cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1603744119i/55361178.jpg",
 			"notes": "How graphic design and capitalism are intertwined. Critical and eye-opening.",
-			"link": "https://www.goodreads.com/book/show/55361178-caps-lock"
+			"goodreadsLink": "https://www.goodreads.com/book/show/55361178-caps-lock",
+			"amazonLink": "https://www.amazon.com/Caps-Lock-Capitalism-Graphic-Design/dp/9492095874"
 		},
 		{
 			"id": "14",
@@ -183,7 +196,8 @@
 			"color": "#00CEC9",
 			"cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1527259148i/39644200.jpg",
 			"notes": "How inclusion shapes design. Essential reading on accessibility.",
-			"link": "https://www.goodreads.com/book/show/39644200-mismatch"
+			"goodreadsLink": "https://www.goodreads.com/book/show/39644200-mismatch",
+			"amazonLink": "https://www.amazon.com/Mismatch-Inclusion-Simplicity-Technology-Business/dp/0262038889"
 		},
 		{
 			"id": "15",
@@ -194,7 +208,8 @@
 			"color": "#B2BEC3",
 			"cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1555348998i/42527493.jpg",
 			"notes": "How does technology continue to reinforce racism? Critical tech studies.",
-			"link": "https://www.goodreads.com/book/show/42527493-race-after-technology"
+			"goodreadsLink": "https://www.goodreads.com/book/show/42527493-race-after-technology",
+			"amazonLink": "https://www.amazon.com/Race-After-Technology-Abolitionist-Tools/dp/1509526404"
 		},
 		{
 			"id": "16",
@@ -205,7 +220,8 @@
 			"color": "#FAB1A0",
 			"cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1456530722i/28465942.jpg",
 			"notes": "A year of hand-drawn data visualizations exchanged as postcards. Beautiful and inspiring.",
-			"link": "https://www.goodreads.com/book/show/28465942-dear-data"
+			"goodreadsLink": "https://www.goodreads.com/book/show/28465942-dear-data",
+			"amazonLink": "https://www.amazon.com/Dear-Data-Giorgia-Lupi/dp/1616895322"
 		}
 	]
 }
