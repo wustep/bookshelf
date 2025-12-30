@@ -325,6 +325,42 @@ export function BookModal({
 									? formatDate(currentBook.date)
 									: currentBook.year}
 							</span>
+							{(currentBook.goodreadsLink ||
+								currentBook.amazonLink ||
+								currentBook.link) && (
+								<div className="book-modal__links">
+									{currentBook.link && (
+										<a
+											href={currentBook.link}
+											target="_blank"
+											rel="noopener noreferrer"
+											className="book-modal__link"
+										>
+											View Book →
+										</a>
+									)}
+									{currentBook.goodreadsLink && (
+										<a
+											href={currentBook.goodreadsLink}
+											target="_blank"
+											rel="noopener noreferrer"
+											className="book-modal__link"
+										>
+											View on Goodreads →
+										</a>
+									)}
+									{currentBook.amazonLink && (
+										<a
+											href={currentBook.amazonLink}
+											target="_blank"
+											rel="noopener noreferrer"
+											className="book-modal__link"
+										>
+											View on Amazon →
+										</a>
+									)}
+								</div>
+							)}
 						</header>
 
 						{currentBook.notes && (
@@ -352,43 +388,6 @@ export function BookModal({
 									))}
 								</ul>
 							</section>
-						)}
-
-						{(currentBook.goodreadsLink ||
-							currentBook.amazonLink ||
-							currentBook.link) && (
-							<div className="book-modal__links">
-								{currentBook.link && (
-									<a
-										href={currentBook.link}
-										target="_blank"
-										rel="noopener noreferrer"
-										className="book-modal__link"
-									>
-										View Book →
-									</a>
-								)}
-								{currentBook.goodreadsLink && (
-									<a
-										href={currentBook.goodreadsLink}
-										target="_blank"
-										rel="noopener noreferrer"
-										className="book-modal__link"
-									>
-										View on Goodreads →
-									</a>
-								)}
-								{currentBook.amazonLink && (
-									<a
-										href={currentBook.amazonLink}
-										target="_blank"
-										rel="noopener noreferrer"
-										className="book-modal__link"
-									>
-										View on Amazon →
-									</a>
-								)}
-							</div>
 						)}
 					</div>
 				</div>

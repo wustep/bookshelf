@@ -65,12 +65,16 @@ function App() {
 
 	const handleNavigate = useCallback(
 		(direction) => {
-			const newIndex = currentBookIndex + direction
-			if (newIndex >= 0 && newIndex < filteredBooks.length) {
-				setSelectedBook(filteredBooks[newIndex])
-				// Clear origin position for smooth transition (no lift animation)
-				setOriginPosition(null)
+			let newIndex = currentBookIndex + direction
+			// Wrap around
+			if (newIndex < 0) {
+				newIndex = filteredBooks.length - 1
+			} else if (newIndex >= filteredBooks.length) {
+				newIndex = 0
 			}
+			setSelectedBook(filteredBooks[newIndex])
+			// Clear origin position for smooth transition (no lift animation)
+			setOriginPosition(null)
 		},
 		[currentBookIndex, filteredBooks]
 	)
@@ -191,8 +195,8 @@ function App() {
 					onClose={handleCloseModal}
 					originPosition={originPosition}
 					onNavigate={handleNavigate}
-					hasPrev={currentBookIndex > 0}
-					hasNext={currentBookIndex < filteredBooks.length - 1}
+					hasPrev={filteredBooks.length > 1}
+					hasNext={filteredBooks.length > 1}
 				/>
 			)}
 		</div>
