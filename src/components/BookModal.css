@@ -390,17 +390,21 @@
 	transition: opacity 0.4s ease 0.2s, transform 0.4s ease 0.2s;
 }
 
-/* Book navigation transition */
+/* Book navigation transition - simple cross-fade */
 .book-modal--transitioning .book-modal__content {
 	opacity: 0;
-	transform: translateX(0);
-	transition: opacity 0.15s ease;
+	transition: opacity 0.12s ease-out;
 }
 
 .book-modal--transitioning .book-modal__cover-front img,
 .book-modal--transitioning .book-modal__cover-placeholder {
 	opacity: 0;
-	transition: opacity 0.15s ease;
+	transition: opacity 0.12s ease-out;
+}
+
+.book-modal--open:not(.book-modal--transitioning) .book-modal__content {
+	opacity: 1;
+	transition: opacity 0.12s ease-in;
 }
 
 .book-modal--closing .book-modal__content {

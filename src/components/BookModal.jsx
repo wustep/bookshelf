@@ -36,8 +36,8 @@ export function BookModal({
 				// Small delay before fade in
 				setTimeout(() => {
 					setIsTransitioning(false)
-				}, 50)
-			}, 150) // Fade out duration
+				}, 30)
+			}, 100) // Fade out duration
 
 			return () => clearTimeout(timersRef.current.transition)
 		} else if (!displayedBook && book) {
@@ -205,7 +205,10 @@ export function BookModal({
 				"--origin-scale": originScale,
 			}}
 		>
-			<div className="book-modal__book" style={{ "--book-color": book.color }}>
+			<div
+				className="book-modal__book"
+				style={{ "--book-color": currentBook.color }}
+			>
 				{/* Front cover (flips open) */}
 				<div className="book-modal__cover">
 					<div className="book-modal__cover-front">
