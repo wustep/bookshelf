@@ -7,8 +7,10 @@ export function Loader() {
 				<div className="loader__book loader__book--1" />
 				<div className="loader__book loader__book--2" />
 				<div className="loader__book loader__book--3" />
+				<div className="loader__book loader__book--4" />
+				<div className="loader__book loader__book--5" />
 			</div>
-			<p className="loader__text">Loading books...</p>
+			<p className="loader__text">Dusting off the shelves...</p>
 		</div>
 	)
 }

@@ -8,6 +8,7 @@ export function useBooks() {
 
 	useEffect(() => {
 		async function loadBooks() {
+			const startTime = Date.now()
 			try {
 				setLoading(true)
 				const response = await fetch(config.dataPath)
@@ -17,7 +18,10 @@ export function useBooks() {
 				setError(err.message)
 				console.error("Failed to load books:", err)
 			} finally {
-				setLoading(false)
+				// Ensure minimum 500ms loading time for smooth transition
+				const elapsed = Date.now() - startTime
+				const remaining = Math.max(0, 500 - elapsed)
+				setTimeout(() => setLoading(false), remaining)
 			}
 		}
 
