@@ -13,6 +13,15 @@ function App() {
 	const { books, loading, error } = useBooks()
 	const categories = useCategories(books)
 
+	// Check for mode URL parameter (for iframe embedding)
+	useEffect(() => {
+		const params = new URLSearchParams(window.location.search)
+		const mode = params.get("mode")
+		if (mode === "dark" || mode === "light") {
+			document.documentElement.setAttribute("data-theme", mode)
+		}
+	}, [])
+
 	// Block rendering until fonts are loaded
 	useEffect(() => {
 		document.fonts.ready.then(() => setFontsLoaded(true))

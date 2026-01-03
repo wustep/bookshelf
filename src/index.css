@@ -23,9 +23,9 @@
 	--transition-medium: 0.3s ease;
 }
 
-/* Dark theme */
+/* Dark theme - system preference (lowest priority) */
 @media (prefers-color-scheme: dark) {
-	:root {
+	:root:not([data-theme]) {
 		--bg-primary: #0d0d0f;
 		--bg-secondary: #161618;
 		--card-bg: #1c1c1f;
@@ -37,6 +37,20 @@
 		--accent-color: #a29bfe;
 		--accent-shadow: rgba(162, 155, 254, 0.2);
 	}
+}
+
+/* Dark theme - URL param override (highest priority) */
+:root[data-theme="dark"] {
+	--bg-primary: #0d0d0f;
+	--bg-secondary: #161618;
+	--card-bg: #1c1c1f;
+	--text-primary: #f5f5f5;
+	--text-secondary: #b0b0b0;
+	--text-tertiary: #707070;
+	--border-color: rgba(255, 255, 255, 0.08);
+	--input-bg: #232326;
+	--accent-color: #a29bfe;
+	--accent-shadow: rgba(162, 155, 254, 0.2);
 }
 
 /* Reset & Base */
