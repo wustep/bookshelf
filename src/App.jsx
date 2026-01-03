@@ -13,14 +13,42 @@ function App() {
 	const { books, loading, error } = useBooks()
 	const categories = useCategories(books)
 
-	// Check for mode URL parameter (for iframe embedding)
-	useEffect(() => {
+	// Check if we're in an iframe (lazy init to avoid flash)
+	const [isIframed] = useState(() => {
+		try {
+			return window.self !== window.top
+		} catch {
+			return true // Cross-origin iframes throw, assume iframed
+		}
+	})
+
+	// Initialize theme from URL param or system preference
+	const [theme, setTheme] = useState(() => {
 		const params = new URLSearchParams(window.location.search)
 		const mode = params.get("mode")
 		if (mode === "dark" || mode === "light") {
-			document.documentElement.setAttribute("data-theme", mode)
+			return mode
 		}
-	}, [])
+		return window.matchMedia("(prefers-color-scheme: dark)").matches
+			? "dark"
+			: "light"
+	})
+
+	// Apply theme to document when it changes
+	useEffect(() => {
+		const params = new URLSearchParams(window.location.search)
+		const urlMode = params.get("mode")
+		// Only set data-theme if URL param was provided or user toggled
+		if (urlMode || !isIframed) {
+			document.documentElement.setAttribute("data-theme", theme)
+		}
+	}, [theme, isIframed])
+
+	const toggleTheme = () => {
+		const newTheme = theme === "dark" ? "light" : "dark"
+		setTheme(newTheme)
+		document.documentElement.setAttribute("data-theme", newTheme)
+	}
 
 	// Block rendering until fonts are loaded
 	useEffect(() => {
@@ -189,12 +217,25 @@ function App() {
 			</div>
 
 			<footer className="footer">
-				<p>
-					Built with <span className="heart">♥</span> by{" "}
-					<a href="https://wustep.me" target="_blank">
-						Stephen Wu
-					</a>
-				</p>
+				<div className="footer__content">
+					<p>
+						Built with <span className="heart">♥</span> by{" "}
+						<a href="https://wustep.me" target="_blank">
+							Stephen Wu
+						</a>
+					</p>
+					{!isIframed && (
+						<button
+							className="theme-toggle"
+							onClick={toggleTheme}
+							aria-label={`Switch to ${
+								theme === "dark" ? "light" : "dark"
+							} mode`}
+						>
+							{theme === "dark" ? "☀️" : "🌙"}
+						</button>
+					)}
+				</div>
 			</footer>
 
 			{selectedBook && (
