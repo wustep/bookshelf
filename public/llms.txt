@@ -1,0 +1,22 @@
+# Bookshelf
+
+> A curated collection of recommended books
+
+This is a personal bookshelf web application showcasing book recommendations organized by category. Each book entry includes the title, author, personal notes, notable quotes, and links to Goodreads and Amazon.
+
+## Full Content
+
+For the complete markdown version with all book details, notes, and quotes, see:
+- /llms.md
+
+## Categories
+
+- Culture
+- Design  
+- Engineering
+- Thinking
+
+## About
+
+This bookshelf is a React web application. The markdown version at /llms.md is optimized for LLMs and AI assistants.
+
