@@ -1,4 +1,6 @@
 {
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
   "rewrites": [
     {
       "source": "/",
@@ -6,21 +8,14 @@
         {
           "type": "header",
           "key": "accept",
-          "value": ".*text/markdown.*"
+          "value": ".*text/(markdown|md).*"
         }
       ],
       "destination": "/api/index"
     },
     {
-      "source": "/",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept",
-          "value": ".*text/md.*"
-        }
-      ],
-      "destination": "/api/index"
+      "source": "/((?!api|assets|data|llms|favicon).*)",
+      "destination": "/index.html"
     }
   ],
   "headers": [
