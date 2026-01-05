@@ -1,4 +1,10 @@
 {
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/api/index"
+    }
+  ],
   "headers": [
     {
       "source": "/llms.md",
@@ -20,4 +26,3 @@
     }
   ]
 }
-
