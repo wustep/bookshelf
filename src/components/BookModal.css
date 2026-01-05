@@ -572,9 +572,9 @@
 	color: var(--book-color);
 }
 
-/* Dark mode adjustments for pages */
+/* Dark mode adjustments for pages - system preference (when no data-theme set) */
 @media (prefers-color-scheme: dark) {
-	.book-modal__pages {
+	:root:not([data-theme]) .book-modal__pages {
 		background: linear-gradient(
 			to right,
 			#1a1a1c 0%,
@@ -584,7 +584,7 @@
 		);
 	}
 
-	.book-modal__pages::before {
+	:root:not([data-theme]) .book-modal__pages::before {
 		background: repeating-linear-gradient(
 			to bottom,
 			transparent 0px,
@@ -594,57 +594,130 @@
 		);
 	}
 
-	.book-modal__cover-back {
+	:root:not([data-theme]) .book-modal__cover-back {
 		background: linear-gradient(to right, #2a2a2c 0%, #333335 100%);
 	}
 
-	.book-modal__content {
+	:root:not([data-theme]) .book-modal__content {
 		color: #e5e5e5;
 		scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
 	}
 
-	.book-modal__content::-webkit-scrollbar-thumb {
+	:root:not([data-theme]) .book-modal__content::-webkit-scrollbar-thumb {
 		background: rgba(255, 255, 255, 0.2);
 	}
 
-	.book-modal__content::-webkit-scrollbar-thumb:hover {
+	:root:not([data-theme]) .book-modal__content::-webkit-scrollbar-thumb:hover {
 		background: rgba(255, 255, 255, 0.3);
 	}
 
-	.book-modal__title {
+	:root:not([data-theme]) .book-modal__title {
 		color: #f5f5f5;
 	}
 
-	.book-modal__author {
+	:root:not([data-theme]) .book-modal__author {
 		color: #aaa;
 	}
 
-	.book-modal__year {
+	:root:not([data-theme]) .book-modal__year {
 		color: #888;
 	}
 
-	.book-modal__section h3 {
+	:root:not([data-theme]) .book-modal__section h3 {
 		color: #ddd;
 	}
 
-	.book-modal__section p {
+	:root:not([data-theme]) .book-modal__section p {
 		color: #bbb;
 	}
 
-	.book-modal__quote blockquote {
+	:root:not([data-theme]) .book-modal__quote blockquote {
 		color: #aaa;
 	}
 
-	.book-modal__nav-btn,
-	.book-modal__close {
+	:root:not([data-theme]) .book-modal__nav-btn,
+	:root:not([data-theme]) .book-modal__close {
 		background: rgba(255, 255, 255, 0.1);
 		color: #ccc;
 	}
 
-	.book-modal__nav-btn:hover,
-	.book-modal__close:hover {
+	:root:not([data-theme]) .book-modal__nav-btn:hover,
+	:root:not([data-theme]) .book-modal__close:hover {
 		background: rgba(255, 255, 255, 0.15);
 	}
+}
+
+/* Dark mode adjustments - explicit dark theme via data-theme attribute */
+:root[data-theme="dark"] .book-modal__pages {
+	background: linear-gradient(
+		to right,
+		#1a1a1c 0%,
+		#222224 5%,
+		#222224 95%,
+		#1a1a1c 100%
+	);
+}
+
+:root[data-theme="dark"] .book-modal__pages::before {
+	background: repeating-linear-gradient(
+		to bottom,
+		transparent 0px,
+		transparent 2px,
+		#333 2px,
+		#333 3px
+	);
+}
+
+:root[data-theme="dark"] .book-modal__cover-back {
+	background: linear-gradient(to right, #2a2a2c 0%, #333335 100%);
+}
+
+:root[data-theme="dark"] .book-modal__content {
+	color: #e5e5e5;
+	scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+:root[data-theme="dark"] .book-modal__content::-webkit-scrollbar-thumb {
+	background: rgba(255, 255, 255, 0.2);
+}
+
+:root[data-theme="dark"] .book-modal__content::-webkit-scrollbar-thumb:hover {
+	background: rgba(255, 255, 255, 0.3);
+}
+
+:root[data-theme="dark"] .book-modal__title {
+	color: #f5f5f5;
+}
+
+:root[data-theme="dark"] .book-modal__author {
+	color: #aaa;
+}
+
+:root[data-theme="dark"] .book-modal__year {
+	color: #888;
+}
+
+:root[data-theme="dark"] .book-modal__section h3 {
+	color: #ddd;
+}
+
+:root[data-theme="dark"] .book-modal__section p {
+	color: #bbb;
+}
+
+:root[data-theme="dark"] .book-modal__quote blockquote {
+	color: #aaa;
+}
+
+:root[data-theme="dark"] .book-modal__nav-btn,
+:root[data-theme="dark"] .book-modal__close {
+	background: rgba(255, 255, 255, 0.1);
+	color: #ccc;
+}
+
+:root[data-theme="dark"] .book-modal__nav-btn:hover,
+:root[data-theme="dark"] .book-modal__close:hover {
+	background: rgba(255, 255, 255, 0.15);
 }
 
 /* Small screens - simpler modal without book animation */
