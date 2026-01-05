@@ -1,16 +1,4 @@
 {
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
-  "rewrites": [
-    {
-      "source": "/",
-      "destination": "/api/index"
-    },
-    {
-      "source": "/((?!api|assets|data|llms|favicon).*)",
-      "destination": "/index.html"
-    }
-  ],
   "headers": [
     {
       "source": "/llms.md",
