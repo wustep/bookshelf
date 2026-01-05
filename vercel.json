@@ -4,13 +4,6 @@
   "rewrites": [
     {
       "source": "/",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept",
-          "value": ".*text/(markdown|md).*"
-        }
-      ],
       "destination": "/api/index"
     },
     {
