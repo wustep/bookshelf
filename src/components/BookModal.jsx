@@ -89,18 +89,16 @@ export function BookModal({
 				const centerX = window.innerWidth / 2
 				const centerY = window.innerHeight / 2
 
-				// Calculate new origin offset
-				const modalWidth = Math.min(920, window.innerWidth - 64)
-				const modalHeight = Math.min(
-					modalWidth * 0.75,
-					window.innerHeight * 0.88
-				)
-				const newScale = Math.min(updatedRect.width / (modalWidth * 0.5), 0.85)
-				const coverCenterOffset = modalWidth * 0.25 * newScale
-				const modalCoverHeightAtScale = modalHeight * newScale
-				const heightDiff = modalCoverHeightAtScale - updatedRect.height
+				// Calculate new origin offset (2:3 single book, matching CSS)
+				// Height-first: use 92vh (max 1000px), then derive width from 2:3 ratio
+				const modalHeight = Math.min(window.innerHeight * 0.92, 1000)
+				const modalWidth = modalHeight * (2 / 3)
+				const newScale = Math.min(updatedRect.width / modalWidth, 0.85)
+				const modalHeightAtScale = modalHeight * newScale
+				const heightDiff = modalHeightAtScale - updatedRect.height
 
-				const newOffsetX = cardCenterX - centerX + coverCenterOffset
+				// Book is centered, no offset needed for cover position
+				const newOffsetX = cardCenterX - centerX
 				const newOffsetY = cardCenterY - centerY + heightDiff / 2
 
 				// Update CSS variables for close animation
@@ -127,8 +125,8 @@ export function BookModal({
 
 			// Use faster timing on mobile (no 3D book animation)
 			const isMobile = window.innerWidth <= 600
-			const liftDelay = isMobile ? 50 : 350
-			const openDelay = isMobile ? 200 : 900
+			const liftDelay = isMobile ? 50 : 450
+			const openDelay = isMobile ? 200 : 1000
 
 			timersRef.current.lift = setTimeout(() => {
 				if (!isClosingRef.current) {
@@ -203,16 +201,11 @@ export function BookModal({
 	const centerX = typeof window !== "undefined" ? window.innerWidth / 2 : 0
 	const centerY = typeof window !== "undefined" ? window.innerHeight / 2 : 0
 
-	// Modal dimensions (4:3 aspect ratio so cover at 50% width has 2:3 ratio)
-	const modalWidth = Math.min(
-		920,
-		typeof window !== "undefined" ? window.innerWidth - 64 : 920
-	)
-	const modalHeight = Math.min(
-		modalWidth * 0.75,
-		typeof window !== "undefined" ? window.innerHeight * 0.88 : 690
-	)
-	const coverWidthAtScale1 = modalWidth * 0.5 // Cover is 50% of modal
+	// Modal dimensions (2:3 single book proportions, matching CSS)
+	// Height-first: use 92vh (max 1000px), then derive width from 2:3 ratio
+	const viewportHeight = typeof window !== "undefined" ? window.innerHeight : 700
+	const modalHeight = Math.min(viewportHeight * 0.92, 1000)
+	const modalWidth = modalHeight * (2 / 3)
 
 	// Card dimensions
 	const cardWidth = originPosition?.width ?? 200
@@ -220,19 +213,17 @@ export function BookModal({
 	const cardCenterX = originPosition?.x ?? centerX
 	const cardCenterY = originPosition?.y ?? centerY
 
-	// Scale so the cover matches the card width
+	// Scale so the book matches the card width
 	const originScale = originPosition
-		? Math.min(cardWidth / coverWidthAtScale1, 0.85)
+		? Math.min(cardWidth / modalWidth, 0.85)
 		: 0.4
 
-	// The cover's center is at 25% of modal width from the left edge
-	const coverCenterOffset = modalWidth * 0.25 * originScale
-	const offsetX = cardCenterX - centerX + coverCenterOffset
+	// Book is centered, cover is full width
+	const offsetX = cardCenterX - centerX
 
-	// The modal's cover is taller than the card's cover when scaled to match width
-	// Adjust Y to account for this height difference
-	const modalCoverHeightAtScale = modalHeight * originScale
-	const heightDiff = modalCoverHeightAtScale - cardCoverHeight
+	// Adjust Y to account for height difference when scaled
+	const modalHeightAtScale = modalHeight * originScale
+	const heightDiff = modalHeightAtScale - cardCoverHeight
 	const offsetY = cardCenterY - centerY + heightDiff / 2
 
 	// Use displayedBook for content (delayed during transition)
@@ -257,6 +248,26 @@ export function BookModal({
 				"--origin-scale": originScale,
 			}}
 		>
+			{/* Navigation arrows outside the book */}
+			{hasPrev && (
+				<button
+					className="book-modal__nav-btn book-modal__nav-btn--prev"
+					onClick={() => onNavigate(-1)}
+					aria-label="Previous book"
+				>
+					←
+				</button>
+			)}
+			{hasNext && (
+				<button
+					className="book-modal__nav-btn book-modal__nav-btn--next"
+					onClick={() => onNavigate(1)}
+					aria-label="Next book"
+				>
+					→
+				</button>
+			)}
+
 			<div
 				className="book-modal__book"
 				style={{ "--book-color": currentBook.color }}
@@ -286,33 +297,6 @@ export function BookModal({
 
 				{/* Book pages / content */}
 				<div className="book-modal__pages">
-					<div className="book-modal__nav">
-						{hasPrev && (
-							<button
-								className="book-modal__nav-btn book-modal__nav-btn--prev"
-								onClick={() => onNavigate(-1)}
-								aria-label="Previous book"
-							>
-								←
-							</button>
-						)}
-						{hasNext && (
-							<button
-								className="book-modal__nav-btn book-modal__nav-btn--next"
-								onClick={() => onNavigate(1)}
-								aria-label="Next book"
-							>
-								→
-							</button>
-						)}
-						<button
-							className="book-modal__close"
-							onClick={handleClose}
-							aria-label="Close"
-						>
-							×
-						</button>
-					</div>
 
 					<div className="book-modal__content">
 						<header className="book-modal__header">
