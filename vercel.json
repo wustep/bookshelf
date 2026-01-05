@@ -2,6 +2,24 @@
   "rewrites": [
     {
       "source": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept",
+          "value": ".*text/markdown.*"
+        }
+      ],
+      "destination": "/api/index"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept",
+          "value": ".*text/md.*"
+        }
+      ],
       "destination": "/api/index"
     }
   ],
