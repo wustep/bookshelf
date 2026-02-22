@@ -278,6 +278,23 @@
 			"notes": "A novel about video games, creativity, love, and loss. A lovely gift for friends who grew up with video games.",
 			"goodreadsLink": "https://www.goodreads.com/book/show/58784475-tomorrow-and-tomorrow-and-tomorrow",
 			"amazonLink": "https://www.amazon.com/Tomorrow-novel-Gabrielle-Zevin/dp/0593321200?tag=wustep09-20"
+		},
+		{
+			"id": "19",
+			"title": "Same as Ever",
+			"author": "Morgan Housel",
+			"date": "2023-11-07",
+			"category": "Thinking",
+			"color": "#2980B9",
+			"cover": "/data/covers/same-as-ever.jpg",
+			"notes": "Timeless lessons on risk, opportunity, and living a good life. A guide to the things that never change.",
+			"quotes": [
+				"Some of the most important questions to ask yourself are: Who has the right answer, but I ignore because they're inarticulate? And what do I believe is true but is actually just good marketing? They are uncomfortable questions and difficult to answer. But if you're honest with yourself you'll see how many people, and how many beliefs, fall into these buckets. And then you'll see the truth—that the best story wins.",
+				"An important component of human behavior is that people who've had different experiences than you will think differently than you do. They'll have different goals, outlooks, wishes, and values. So most debates are not actual disagreements; they're people with different experiences talking over each other.",
+				"One is the constant reminder that wealth and happiness is a two-part equation: what you have and what you expect/need. When you realize that each part is equally important, you see that the overwhelming attention we pay to getting more and the negligible attention we put on managing expectations makes little sense, especially because the expectations side can be so much more in your control. The other is to understand how the expectation game is played. It's a mental game, and it's often crazy and agonizing, but it's a game that everyone is forced to play, so you should be aware of the rules and strategies. It goes like this: You think you want progress, both for yourself and for the world. But most of the time that's not actually what you want. You want to feel a gap between what you expected and what actually happened. And the expectation side of that equation is not only important, but it's often more in your control than managing your circumstances."
+			],
+			"goodreadsLink": "https://www.goodreads.com/book/show/125116554-same-as-ever",
+			"amazonLink": "https://www.amazon.com/Same-Ever-Guide-Never-Changes/dp/0593332709?tag=wustep09-20"
 		}
 	]
 }

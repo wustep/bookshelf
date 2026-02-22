@@ -2,7 +2,7 @@
 
 > A curated collection of recommended books. This document is optimized for LLMs and AI assistants.
 
-**Total Books:** 18  
+**Total Books:** 19  
 **Categories:** Culture, Design, Engineering, Thinking
 
 ---
@@ -22,7 +22,7 @@ This bookshelf contains book recommendations organized by category. Each entry i
 - [Culture](#culture) (4 books)
 - [Design](#design) (3 books)
 - [Engineering](#engineering) (3 books)
-- [Thinking](#thinking) (8 books)
+- [Thinking](#thinking) (9 books)
 
 ---
 
@@ -330,10 +330,29 @@ General thinking concepts. Frameworks for better decision making.
 
 ---
 
+### Same as Ever
+
+**Author:** Morgan Housel  
+**Year Read:** 2023
+
+Timeless lessons on risk, opportunity, and living a good life. A guide to the things that never change.
+
+**Notable Quotes:**
+
+> Some of the most important questions to ask yourself are: Who has the right answer, but I ignore because they're inarticulate? And what do I believe is true but is actually just good marketing? They are uncomfortable questions and difficult to answer. But if you're honest with yourself you'll see how many people, and how many beliefs, fall into these buckets. And then you'll see the truth—that the best story wins.
+
+> An important component of human behavior is that people who've had different experiences than you will think differently than you do. They'll have different goals, outlooks, wishes, and values. So most debates are not actual disagreements; they're people with different experiences talking over each other.
+
+> One is the constant reminder that wealth and happiness is a two-part equation: what you have and what you expect/need. When you realize that each part is equally important, you see that the overwhelming attention we pay to getting more and the negligible attention we put on managing expectations makes little sense, especially because the expectations side can be so much more in your control. The other is to understand how the expectation game is played. It's a mental game, and it's often crazy and agonizing, but it's a game that everyone is forced to play, so you should be aware of the rules and strategies. It goes like this: You think you want progress, both for yourself and for the world. But most of the time that's not actually what you want. You want to feel a gap between what you expected and what actually happened. And the expectation side of that equation is not only important, but it's often more in your control than managing your circumstances.
+
+**Links:** [Goodreads](https://www.goodreads.com/book/show/125116554-same-as-ever) · [Amazon](https://www.amazon.com/Same-Ever-Guide-Never-Changes/dp/0593332709?tag=wustep09-20)
+
+---
+
 ## About
 
 This is a markdown representation of the Bookshelf web application, designed for consumption by LLMs and AI assistants.
 
 For the interactive version, visit the website.
 
-*Generated on 2026-01-05*
+*Generated on 2026-02-22*
