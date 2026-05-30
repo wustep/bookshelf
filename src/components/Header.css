@@ -1,21 +1,7 @@
 .header {
 	position: relative;
-	padding: 3rem 0 1rem;
+	padding: 4rem 0 0;
 	overflow: visible;
-}
-
-/* Gradient decoration - moved to index.css for proper stacking */
-
-@keyframes gradientFloat {
-	0%,
-	100% {
-		transform: translate(0, 0) scale(1);
-		opacity: 0.18;
-	}
-	50% {
-		transform: translate(-5px, 3px) scale(1.02);
-		opacity: 0.22;
-	}
 }
 
 .header__content {
@@ -23,57 +9,44 @@
 	z-index: 1;
 }
 
-.header__brand {
-	display: flex;
-	align-items: center;
-	gap: 0.75rem;
-}
-
-.header__icon {
-	font-size: 1.5rem;
-	color: var(--accent-color);
-	animation: sparkle 2s ease-in-out infinite;
-}
-
-@keyframes sparkle {
-	0%,
-	100% {
-		opacity: 1;
-		transform: scale(1) rotate(0deg);
-	}
-	50% {
-		opacity: 0.7;
-		transform: scale(1.1) rotate(15deg);
-	}
-}
-
 .header__title {
 	font-family: var(--font-display);
-	font-size: 2.5rem;
-	font-weight: 700;
+	font-size: clamp(2.75rem, 6vw, 3.5rem);
+	font-weight: 600;
+	line-height: 1;
+	letter-spacing: -0.02em;
 	margin: 0;
-	background: linear-gradient(
-		135deg,
-		var(--text-primary) 0%,
-		var(--accent-color) 100%
-	);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	background-clip: text;
-}
-
-@media (min-width: 768px) {
-	.header__title {
-		font-size: 3rem;
-	}
+	color: var(--text-primary);
+	text-wrap: balance;
 }
 
 .header__subtitle {
 	font-family: var(--font-display);
-	font-size: 1.1rem;
+	font-size: clamp(1.1rem, 2.2vw, 1.35rem);
 	font-weight: 500;
 	font-style: italic;
-	color: var(--text-primary);
-	margin: 0.25rem 0 0;
-	letter-spacing: 0.01em;
+	line-height: 1.4;
+	letter-spacing: 0;
+	color: var(--text-secondary);
+	margin: 0.55rem 0 0;
 }
+
+/* Subtle author link — same ink, a faint underline that firms up on hover. */
+.header__link {
+	color: inherit;
+	text-decoration: underline;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 3px;
+	text-decoration-color: color-mix(in srgb, currentColor 28%, transparent);
+	transition:
+		color 0.2s ease,
+		text-decoration-color 0.2s ease;
+}
+
+@media (hover: hover) {
+	.header__link:hover {
+		color: var(--text-primary);
+		text-decoration-color: color-mix(in srgb, currentColor 55%, transparent);
+	}
+}
+

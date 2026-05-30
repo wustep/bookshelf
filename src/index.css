@@ -6,6 +6,9 @@
 	--font-body: "Outfit", system-ui, -apple-system, sans-serif;
 	--font-display: "Cormorant Garamond", Georgia, serif;
 
+	/* Crisp hairline rules — 0.5px on retina, 1px otherwise */
+	--border-hairline: 1px;
+
 	/* Colors - Light theme (default) */
 	--bg-primary: #faf9f7;
 	--bg-secondary: #ffffff;
@@ -15,8 +18,8 @@
 	--text-tertiary: #7a7a7a;
 	--border-color: rgba(0, 0, 0, 0.08);
 	--input-bg: #ffffff;
-	--accent-color: #6c5ce7;
-	--accent-shadow: rgba(108, 92, 231, 0.15);
+	--accent-color: #2f4b7c;
+	--accent-shadow: rgba(47, 75, 124, 0.18);
 
 	/* Transitions */
 	--transition-fast: 0.15s ease;
@@ -34,8 +37,8 @@
 		--text-tertiary: #707070;
 		--border-color: rgba(255, 255, 255, 0.08);
 		--input-bg: #232326;
-		--accent-color: #a29bfe;
-		--accent-shadow: rgba(162, 155, 254, 0.2);
+		--accent-color: #7e9bd4;
+		--accent-shadow: rgba(126, 155, 212, 0.22);
 	}
 }
 
@@ -49,8 +52,8 @@
 	--text-tertiary: #707070;
 	--border-color: rgba(255, 255, 255, 0.08);
 	--input-bg: #232326;
-	--accent-color: #a29bfe;
-	--accent-shadow: rgba(162, 155, 254, 0.2);
+	--accent-color: #7e9bd4;
+	--accent-shadow: rgba(126, 155, 212, 0.22);
 }
 
 /* Reset & Base */
@@ -80,68 +83,10 @@ body {
 	min-height: 100vh;
 }
 
-/* Background pattern */
-body::before {
-	content: "";
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background-image: radial-gradient(
-			circle at 20% 80%,
-			var(--accent-color) 0%,
-			transparent 25%
-		),
-		radial-gradient(circle at 80% 20%, #e85d4c 0%, transparent 25%),
-		radial-gradient(circle at 40% 40%, #00b894 0%, transparent 20%);
-	opacity: 0.03;
-	pointer-events: none;
-	z-index: -1;
-}
-
-/* Decorative header gradient glow */
-body::after {
-	content: "";
-	position: fixed;
-	top: -50px;
-	right: 5%;
-	width: 50%;
-	height: 250px;
-	background: radial-gradient(
-			ellipse 60% 50% at 50% 40%,
-			var(--accent-color) 0%,
-			transparent 60%
-		),
-		radial-gradient(ellipse 40% 40% at 20% 60%, #e07a5f 0%, transparent 50%),
-		radial-gradient(ellipse 35% 35% at 80% 55%, #81b29a 0%, transparent 45%);
-	opacity: 0.18;
-	pointer-events: none;
-	z-index: 0;
-	filter: blur(30px);
-	animation: gradientFloat 15s ease-in-out infinite;
-}
-
-@keyframes gradientFloat {
-	0%,
-	100% {
-		transform: translate(0, 0) scale(1);
-		opacity: 0.18;
-	}
-	50% {
-		transform: translate(-5px, 3px) scale(1.02);
-		opacity: 0.22;
-	}
-}
-
-@media (max-width: 640px) {
-	body::after {
-		width: 80%;
-		right: -10%;
-		top: -30px;
-		height: 200px;
-		opacity: 0.12;
-		filter: blur(25px);
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+	only screen and (min-resolution: 192dpi) {
+	:root {
+		--border-hairline: 0.5px;
 	}
 }
 
