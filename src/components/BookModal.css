@@ -348,16 +348,14 @@
 }
 
 /* Navigation arrows - positioned outside the book */
+.book-modal__close-btn,
 .book-modal__nav-btn {
 	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
 	width: 40px;
 	height: 40px;
 	border: none;
 	background: rgba(255, 255, 255, 0.9);
 	border-radius: 50%;
-	font-size: 1.1rem;
 	color: #444;
 	cursor: pointer;
 	display: flex;
@@ -368,6 +366,18 @@
 	z-index: 10;
 	opacity: 0;
 	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.book-modal__close-btn {
+	top: 1.75rem;
+	right: 1.75rem;
+	transform: none;
+}
+
+.book-modal__nav-btn {
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 1.1rem;
 }
 
 .book-modal__nav-btn--prev {
@@ -383,16 +393,36 @@
 	transition: background 0.2s, transform 0.2s, opacity 0.3s ease 0.3s;
 }
 
+.book-modal--lifting .book-modal__close-btn,
+.book-modal--opening .book-modal__close-btn,
+.book-modal--open .book-modal__close-btn {
+	opacity: 1;
+}
+
 .book-modal--closing .book-modal__nav-btn,
-.book-modal--closing-fast .book-modal__nav-btn {
+.book-modal--closing-fast .book-modal__nav-btn,
+.book-modal--closing .book-modal__close-btn,
+.book-modal--closing-fast .book-modal__close-btn {
 	opacity: 0;
 	transition: opacity 0.1s ease;
 }
 
+.book-modal__close-btn:hover,
 .book-modal__nav-btn:hover {
 	background: rgba(255, 255, 255, 1);
-	transform: translateY(-50%) scale(1.1);
 	color: #222;
+}
+
+.book-modal__close-btn:hover {
+	transform: scale(1.08);
+}
+
+.book-modal__nav-btn:hover {
+	transform: translateY(-50%) scale(1.1);
+}
+
+.book-modal__close-btn:active {
+	transform: scale(0.98);
 }
 
 .book-modal__nav-btn:active {
@@ -658,11 +688,13 @@
 		color: #aaa;
 	}
 
+	:root:not([data-theme]) .book-modal__close-btn,
 	:root:not([data-theme]) .book-modal__nav-btn {
 		background: rgba(40, 40, 40, 0.9);
 		color: #ddd;
 	}
 
+	:root:not([data-theme]) .book-modal__close-btn:hover,
 	:root:not([data-theme]) .book-modal__nav-btn:hover {
 		background: rgba(50, 50, 50, 1);
 	}
@@ -735,11 +767,13 @@
 	color: #aaa;
 }
 
+:root[data-theme="dark"] .book-modal__close-btn,
 :root[data-theme="dark"] .book-modal__nav-btn {
 	background: rgba(40, 40, 40, 0.9);
 	color: #ddd;
 }
 
+:root[data-theme="dark"] .book-modal__close-btn:hover,
 :root[data-theme="dark"] .book-modal__nav-btn:hover {
 	background: rgba(50, 50, 50, 1);
 }
@@ -750,6 +784,19 @@
 		padding: 0.75rem;
 		align-items: center;
 		overflow: hidden;
+	}
+
+	.book-modal__close-btn {
+		top: max(1rem, env(safe-area-inset-top));
+		right: max(1rem, env(safe-area-inset-right));
+		width: 44px;
+		height: 44px;
+		z-index: 30;
+	}
+
+	.book-modal__nav-btn {
+		width: 44px;
+		height: 44px;
 	}
 
 	/* Skip the book animation, show content directly */
