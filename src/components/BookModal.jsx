@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, useCallback } from "react"
+import { X } from "lucide-react"
 import "./BookModal.css"
 
 function formatDate(dateStr) {
@@ -248,6 +249,15 @@ export function BookModal({
 				"--origin-scale": originScale,
 			}}
 		>
+			<button
+				className="book-modal__close-btn"
+				onClick={handleClose}
+				aria-label="Close book"
+				type="button"
+			>
+				<X size={18} strokeWidth={2.2} />
+			</button>
+
 			{/* Navigation arrows outside the book */}
 			{hasPrev && (
 				<button
