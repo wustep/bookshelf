@@ -21,6 +21,7 @@
 	animation: bookWave 1.8s ease-in-out infinite;
 }
 
+/* Muted spine colors — books from the same shelf */
 .loader__book--1 {
 	height: 35px;
 	background: var(--accent-color);
@@ -29,25 +30,25 @@
 
 .loader__book--2 {
 	height: 45px;
-	background: #e85d4c;
+	background: #a04b3c;
 	animation-delay: 0.1s;
 }
 
 .loader__book--3 {
 	height: 40px;
-	background: #00b894;
+	background: #5f7355;
 	animation-delay: 0.2s;
 }
 
 .loader__book--4 {
 	height: 32px;
-	background: #fdcb6e;
+	background: #c19a49;
 	animation-delay: 0.3s;
 }
 
 .loader__book--5 {
 	height: 38px;
-	background: #74b9ff;
+	background: #7c6a9c;
 	animation-delay: 0.4s;
 }
 
@@ -62,8 +63,10 @@
 }
 
 .loader__text {
-	font-size: 0.875rem;
+	font-family: var(--font-display);
+	font-style: italic;
+	font-size: 1.05rem;
 	color: var(--text-tertiary);
 	margin: 0;
-	letter-spacing: 0.02em;
+	letter-spacing: 0.01em;
 }

@@ -380,7 +380,7 @@ export function BookModal({
 								<ul className="book-modal__quotes">
 									{currentBook.quotes.map((quote, index) => (
 										<li key={index} className="book-modal__quote">
-											<blockquote>"{quote}"</blockquote>
+											<blockquote>“{quote}”</blockquote>
 										</li>
 									))}
 								</ul>

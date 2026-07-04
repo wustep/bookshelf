@@ -355,4 +355,4 @@ This is a markdown representation of the Bookshelf web application, designed for
 
 For the interactive version, visit the website.
 
-*Generated on 2026-02-22*
+*Generated on 2026-07-04*

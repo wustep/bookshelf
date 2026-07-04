@@ -1,5 +1,6 @@
 import { useState, useMemo, useCallback, useRef, useEffect } from "react"
 import { AnimatePresence } from "framer-motion"
+import { Sun, Moon } from "lucide-react"
 import { useBooks, useCategories } from "./hooks/useBooks"
 import { Header } from "./components/Header"
 import { CategoryBadges } from "./components/CategoryBadges"
@@ -232,7 +233,7 @@ function App() {
 								theme === "dark" ? "light" : "dark"
 							} mode`}
 						>
-							{theme === "dark" ? "☀️" : "🌙"}
+							{theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
 						</button>
 					)}
 				</div>
